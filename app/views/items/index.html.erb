@@ -1,0 +1,90 @@
+
+<div class="slick1">
+      <div></div>
+      <div><%= image_tag 'slide2', class: 'slide-pic' %></div>
+      <div><%= image_tag 'slide1', class: 'slide-pic' %></div>
+      
+      <div><%= image_tag 'slide3', class: 'slide-pic' %></div>
+      <div><%= image_tag 'slide4', class: 'slide-pic' %></div>
+      <div><%= image_tag 'slide5', class: 'slide-pic' %></div>
+</div>
+
+
+<div class="slick2">
+
+<div><%= image_tag '７可愛くポーズを決める女', class: "top-kage" %></div>
+<div><%= image_tag '１手をつなぐ男女', class: "top-kage" %></div>
+<div><%= image_tag '９リラックスして座る男', class: "top-kage" %></div>
+
+
+</div>
+    
+
+
+ <div class="top-message">
+     <div class="transform"></div>
+     
+     <h4>シルエットで、少しクリエイティブに。</h4>
+     
+
+</div>   
+
+
+<div class="sub-message-area">
+
+        <div class="sub-message">
+         <%= image_tag '３紹介する女' %>
+         <h4 class="sen">背景が無いから、上から挿入するだけ！</h4>
+        </div>
+            
+        <div class="sub-message">
+         <%= image_tag '３紹介する女' %>
+         <h4 class="sen">登録不要！完全無料！</h4>
+         <h4 class="next-sen">タグを考えて投稿したら、すぐダウンロード！</h4>
+        </div>
+        
+        <div class="sub-message">
+         <%= image_tag '３紹介する女' %>
+         <h4 class="sen">他には無い、ユニークなポーズ多数！</h4>
+        </div>
+</div>
+
+ <div class="final-message">
+     
+     <h4>さあ、選ぼう。</h4>
+</div> 
+    
+    <!-- <div class="final-message">-->
+    <!--    <h4>さあ、選ぼう！</h4>-->
+    <!--</div>-->
+
+
+<div class="search-area">
+   
+        <%= form_tag('/items/search', method: :get, class: "lets-search") do %>
+        <!--ここを'/posts/search'にしておくことでページ遷移させて、検索結果を表示させる-->
+        <%= text_field_tag :search, "", class: "search-field", placeholder: "キーワードを入力"%>
+        <%= submit_tag '検索する', :name => nil, class: "search-btn" %>
+        <% end %>      
+
+</div>    
+
+
+<!--<div class="search-area">      -->
+
+<%= render partial: "tags"%>
+
+
+<div class="items-list">
+<% @items.each do |item| %>
+    <div class="item">
+        <%= link_to image_tag(item.cr_item), "/items/#{item.id}/show" %>
+         <%= link_to item.title, "/items/#{item.id}/show", method: :get %>
+    </div>
+    <% end %>
+</div>
+    
+<div class="show-more">
+        <a href="/items/search">もっと見る</a>
+</div>
+

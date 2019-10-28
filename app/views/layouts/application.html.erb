@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>カゲローラボ　背景のないシルエットイラスト</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    
+    <!--<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>-->
+    <!--上のだとトップページ遷移時にばぐる-->
+    
+    <!--<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>-->
+    <link rel="stylesheet" type="text/css" href="slick/slick.scss"/>
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.scss"/>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Allerta+Stencil" />
+
+  </head>
+
+<body>
+<header>
+
+           
+              <div class="title-box">
+            
+                
+                <h1><%= link_to 'KAGE-Raw Lab.', '/' %></h1>
+            
+              <h5>背景のないシルエットイラストたち</h5>
+              </div>
+
+</header>
+
+    <%= yield %>
+    
+<footer>
+
+    <h1><%= link_to 'KAGE-Raw Lab.', '/' %></h1>
+    <div class="tgif"><%= image_tag 'tgif-logo' %></div>
+    <div class="twitter"><%= link_to image_tag('twitter-logo'), 'https://twitter.com/kage_raw_lab', target: :_blank, method: :get %></div>
+    <!--上について。イメージタグの後にスペースがあるとエラーになる-->
+    <div class="about">
+        <ul>
+            <li><%= link_to '利用規約', '/items/terms_conditions' %></li>
+            <li><%= link_to 'プライバシーポリシー', '/items/privacy' %></li>
+            <li><%= link_to 'お問い合わせ', '/inquiries' %></li>
+            <li><i class="fab fa-twitter-square"></i>  <%= link_to 'リクエスト', 'https://twitter.com/kage_raw_lab', target: :_blank, method: :get %></li>
+        </ul>
+            
+    </div>
+    
+        
+    
+</footer>
+</body>
+</html>

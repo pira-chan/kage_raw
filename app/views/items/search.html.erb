@@ -1,0 +1,27 @@
+<div class="search-area">
+   
+        <%= form_tag('/items/search', method: :get, class: "lets-search") do %>
+        <!--ここを'/posts/search'にしておくことでページ遷移させて、検索結果を表示させる-->
+        <%= text_field_tag :search, "", class: "search-field", placeholder: "キーワードを入力"%>
+        <%= submit_tag '検索する', :name => nil, class: "search-btn" %>
+        <% end %>      
+
+</div>        
+
+<%= render partial: "tags"%>      
+
+
+
+                <div class="items-list">
+                    
+                
+                
+                <% @searched_items.each do |item| %>
+                    <div class="item">
+                        <%= link_to image_tag(item.cr_item), "/items/#{item.id}/show" %>
+                         <%= link_to item.title, "/items/#{item.id}/show", method: :get %>
+                    </div>
+                    <% end %>
+                </div>
+                <%= paginate @searched_items %>
+

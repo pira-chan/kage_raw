@@ -1,0 +1,52 @@
+<div class="search-area">
+   
+        <%= form_tag('/items/search', method: :get, class: "lets-search") do %>
+        <!--ここを'/posts/search'にしておくことでページ遷移させて、検索結果を表示させる-->
+        <%= text_field_tag :search, "", class: "search-field", placeholder: "キーワードを入力"%>
+        <%= submit_tag '検索する', :name => nil, class: "search-btn" %>
+        <% end %>      
+</div>
+    
+
+
+<%= render partial: "tags"%>
+
+
+
+<div class="content">    
+    
+        <div class="dl_item">
+            <%= image_tag @item.cr_item %>
+        </div>
+        
+        <div class="detail-cover">
+
+        <div class="detail">
+            <div class="dl_title">
+                <h3><%=@item.title%></h3>
+            </div>
+            <div class="dl_tag">
+            <p><%= @item.tag %></p>
+            </div>
+
+            <div class="dl_button">
+                <!--<p><a href="/items/#{@item.id}/show">ダウンロード</a></p-->
+                <p><%= link_to 'ダウンロード', "/items/#{@item.dl_id}/download", target: :_blank, method: :get %></p>
+            </div>
+            <div class="dl_info">
+                <p>クリックで利用規約の同意とみなします。</p>
+                <p>ファイル形式はPNGです。</p>
+                <p>新しいタブでダウンロード画像を開きます。</p>
+                <p>新規タブでは、右クリックで画像をダウンロードしてください。</p>
+            </div>
+            
+            <div class="share">
+                <h3>気に入ったシルエットは、ツイートして頂けると嬉しいです！</h3>
+                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="カゲローラボで見つけた！【<%= @item.title %>】|" data-via="kage_raw_lab" data-hashtags="カゲローラボ" data-related="" data-lang="ja" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>        </div>
+                
+            </div>
+        
+        </div>
+</div>
+
+
