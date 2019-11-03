@@ -1,0 +1,2 @@
+class Maketag < ApplicationRecord
+end

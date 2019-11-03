@@ -1,0 +1,2 @@
+class MaketagMailer < ApplicationMailer
+end
