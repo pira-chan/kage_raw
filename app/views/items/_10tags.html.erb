@@ -40,16 +40,16 @@
             <% end %>
             
             
-            <% if @item.tag4 %>
+            <% if @item.tag4 == "NULL"%>
+            <li class="tag"></li>
+            <% else %>
             <li class="tag">
             <%= form_tag('/items/search', method: :get) do %>
             <%= text_field_tag :search, @item.tag4,  class: "hidden-search-field",placeholder: "キーワードを入力"%>
             <%= submit_tag @item.tag4, :name => nil, class: "tag-search-btn2" %>
             <% end %>   
             </li>
-            <% else %>
-            <li class="tag"></li>
-            <% end %>
+             <% end %>
             
             
             <% if @item.tag5 %>
