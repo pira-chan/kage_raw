@@ -1,3 +1,5 @@
+<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="load-twitter-share-button" data-size="large" data-text="カゲローラボで見つけた！【<%= @item.title %>】|" data-via="kage_raw_lab" data-hashtags="カゲローラボ" data-related="" data-lang="ja" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+<!--↑でスクリプトを最初に読み込ませることで、シェボタンが間違いなく表示されるようにする-->
 <div class="search-area">
    
         <%= form_tag('/items/search', method: :get, class: "lets-search") do %>
@@ -25,9 +27,9 @@
             <div class="dl_title">
                 <h3><%=@item.title%></h3>
             </div>
-            <div class="dl_tag">
-            <p><%= @item.tag %></p>
-            </div>
+<%= render partial: "10tags"%>
+            　　<div class="maketag-area">
+                </div> 
 
             <div class="dl_button">
                 <!--<p><a href="/items/#{@item.id}/show">ダウンロード</a></p-->
@@ -42,7 +44,8 @@
             
             <div class="share">
                 <h3>気に入ったシルエットは、ツイートして頂けると嬉しいです！</h3>
-                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="カゲローラボで見つけた！【<%= @item.title %>】|" data-via="kage_raw_lab" data-hashtags="カゲローラボ" data-related="" data-lang="ja" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>        </div>
+                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="カゲローラボで見つけた！【<%= @item.title %>】|" data-via="kage_raw_lab" data-hashtags="カゲローラボ" data-related="" data-lang="ja" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>        
+            </div>
                 
             </div>
         

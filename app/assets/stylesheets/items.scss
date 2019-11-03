@@ -13,7 +13,9 @@
  width: 100%;
  height: 100%;
  object-fit: scale-down;
-    
+}
+.item img:hover {
+    opacity: 0.7;
 }
 
 .item{
@@ -31,6 +33,11 @@
  color: black;
  text-decoration: none;
 } 
+
+.item a:hover {
+    opacity: 0.7;
+}
+
 .items-list{
     
     width: 90%;
@@ -51,6 +58,10 @@
     line-height: 40px;
     border-radius: 10px;
     margin: 50px auto;
+}
+
+.show-more:hover {
+    opacity: 0.7;
 }
 
 .show-more a {
@@ -88,7 +99,6 @@
 footer{
     
     background-color:black;  
-    height :120px;
     width: 100%;
     color: white;
 
@@ -97,13 +107,15 @@ footer{
 
 footer h1 {
     font-size: 35px;
-    display: block;
+ 
     line-height: 120px;
     font-family: "Allerta Stencil";
     margin: 0px 120px 0px 40px;
     float: left;
-    
+}
 
+footer a:hover {
+    opacity: 0.8;
 }
 
 footer a {
@@ -115,8 +127,16 @@ footer a {
     // height: 100px;
     
     line-height: 120px;
-
 }
+
+
+@media screen and (max-width: 1450px){
+    .about {
+ clear: both;
+ text-align: left;
+}
+}
+
 
 .about ul {
     margin-bottom :0px;
@@ -126,12 +146,11 @@ footer a {
 }
 
 .about li{
-    
     list-style: none;
     display: inline-block;
     margin: 0px 15px 0px 15px;
-
 }
+
 
 .tgif {
    float: right;
@@ -145,6 +164,10 @@ footer a {
     width: 250px;
     border-radius: 10px;
 }
+.tgif img:hover {
+    opacity: 0.7;
+}
+
 
 .twitter{
      float: right;
@@ -156,9 +179,8 @@ footer a {
 .twitter img {
     height: 70px;
     width: auto;
-    
-    
 }
+
 /*********** ここからスライドショー ***********/
 
 .slick1{
@@ -479,6 +501,10 @@ text-align: center;
     margin-left:20px;
     font-size:17px;
 }
+
+.search-btn:hover {
+    opacity: 0.7;
+}
  
 .search-btn a{
     
@@ -500,9 +526,13 @@ text-align: center;
     font-size: 18px;
 }
 
+.tag-search-btn:hover {
+    opacity: 0.7;
+}
+
 .dl_item {
     width: 500px;
-    height: 550px;
+    height: 610px;
     display: flex;
     justify-content: center;
     float: left;
@@ -528,8 +558,8 @@ text-align: center;
 
 .detail {
     
-    height: 550px;
-    width:300px;
+    max-height: 700px;
+    width: 300px;
     float: left;
     margin: 0px 0px 0px 20px;
     padding: 15px 15px;
@@ -545,20 +575,100 @@ text-align: center;
 .twitter-share-button{
    float: right;
 }
+
+.load-twitter-share-button {
+    display: none;
+}
 .content {
-    width: 900px;
-    height: 600px;
+    width: 1000px;
+    height: 700px;
     margin: 30px auto;
 }
 
 .dl_tag {
-    padding-top :30px;
-    // height:100px;
-    width:300px;
-    text-align: center;
+
+    max-width: 700px;
+    height: auto;
+    // text-align: center;
 /*    background-color: darkcyan;*/
-    
 }
+
+.dl_tag ul{
+    list-style: none;
+    padding-left: 0px;
+}
+.tag {
+    display: inline;
+    float: left;
+    background-color: 	#e8e8e8	;
+   
+}
+.tag-search-btn2 {
+    background-color: 	#e8e8e8	;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    display: inline;
+    color: #4d5aaf;
+    margin-left: 14px;
+}
+
+.tag-search-btn2:hover {
+    opacity: 0.7;
+}
+
+.maketag-area {
+    float: none;
+    margin-top: 10px;
+}
+
+.maketag-area p {
+    margin: 0px 0px;
+    font-weight: bold;
+}
+.down-arrow {
+    width: 30px;
+    margin: 0 auto;
+}
+
+.fa-angle-double-down {
+    font-size: 40px;
+    text-align: center;
+}
+.maketag-form {
+    display: block;
+    width: 250px;
+    margin: 0 auto;
+    height: 30px;
+    border: 1px solid blue;
+    margin-bottom: 20px;
+}
+
+.alert-message {
+
+    color :red;
+}
+
+.maketag-btn {
+    display: block;
+    border:none;
+    text-align: center;
+    width: 100px;
+    margin : 0 auto;
+    height: 30px;
+    background-color: red;
+    line-height: 30px;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;    
+    cursor:pointer;
+    font-size:17px;
+}
+
+.maketag-btn:hover {
+    opacity: 0.7;
+}
+
 .dl_title {
     font-size: 20px;
     text-align: center;
@@ -589,7 +699,9 @@ footer {
     line-height: 45px;
     display: block;
 }
-
+.dl_button:hover {
+    opacity: 0.7;
+}
 .dl_info {
     font-size: 10px;
     width: 200px;
@@ -630,7 +742,7 @@ body {
 .plz-request{
     display: block;
     width: 380px;
-    margin: 90px auto 0px auto;
+    margin: 80px auto 0px auto;
 }
 
 .rule-area {

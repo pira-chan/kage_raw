@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   root 'items#index'
   get 'items' => 'items#index'
   get 'items/search' => 'items#search'
+  get   'items/:id/show0'  => 'items#show0'
+  patch 'items/:id/maketag'  => 'items#maketag'
+  # post  'items/:id/create' => 'items#create'
+  # 上はどうだろう？アイディを含める
+  # post  'items/create' => 'items#create'
   get   'items/:id/show'  => 'items#show'
   get  'items/:dl_id/download' => 'items#download'
   get 'items/not_found' => 'items#not_found'

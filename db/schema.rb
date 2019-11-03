@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_27_125246) do
+ActiveRecord::Schema.define(version: 2019_10_31_120651) do
 
   create_table "inquiries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -28,6 +28,22 @@ ActiveRecord::Schema.define(version: 2019_10_27_125246) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string "dl_id"
+    t.text "suggest"
+    t.text "tag2"
+    t.text "tag3"
+    t.text "tag4"
+    t.text "tag5"
+    t.text "tag6"
+    t.text "tag7"
+    t.text "tag8"
+    t.text "tag9"
+    t.text "tag10"
+  end
+
+  create_table "maketags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "suggest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

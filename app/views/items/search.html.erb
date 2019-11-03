@@ -18,10 +18,11 @@
                 
                 <% @searched_items.each do |item| %>
                     <div class="item">
-                        <%= link_to image_tag(item.cr_item), "/items/#{item.id}/show" %>
-                         <%= link_to item.title, "/items/#{item.id}/show", method: :get %>
+                        <%= link_to image_tag(item.cr_item), "/items/#{item.id}/show0" %>
+                         <%= link_to item.title, "/items/#{item.id}/show0", method: :get %>
                     </div>
                     <% end %>
                 </div>
+                <p class="plz-request">よろしければ、下記よりリクエストください！</p>
                 <%= paginate @searched_items %>
 
