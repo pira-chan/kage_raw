@@ -18,5 +18,7 @@ Rails.application.routes.draw do
   get 'inquiries' => 'inquiries#index'              # 入力画面
   post 'inquiries/confirm' => 'inquiries#confirm'   # 確認画面
   post 'inquiries/thanks' => 'inquiries#thanks'    # 送信完了画面
+  
+  get '/sitemap' => redirect('https://s3-ap-northeast-1.amazonaws.com/sitename/sitemap.xml.gz')  # サイトマップをＳ３に
 
 end

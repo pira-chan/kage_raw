@@ -74,3 +74,6 @@ gem 'jquery-ui-rails'
 group :production do
   gem 'rails_12factor'
 end
+
+gem 'sitemap_generator'
+gem 'aws-sdk'
