@@ -2,8 +2,9 @@ SitemapGenerator::Sitemap.default_host = "https://www.kage-raw.com/"
 # SitemapGenerator::Sitemap.sitemaps_host = "https://s3-ap-northeast-1.amazonaws.com/#{ENV['S3_BUCKET_NAME']}"
 SitemapGenerator::Sitemap.sitemaps_host = "https://s3-ap-northeast-1.amazonaws.com/#{ENV['S3_BUCKET_NAME']}/sitemaps"
 SitemapGenerator::Sitemap.sitemaps_path = "sitemaps"
+# 上の記述がないとできない！ネットによっては入れてない人多数
 SitemapGenerator::Sitemap.adapter = SitemapGenerator::AwsSdkAdapter.new(
-  'kage-raw',
+  'kage-raw',  # ここも環境変数使いたいがなぜかエラー
   aws_access_key_id: ENV['AWS_ACCESS_KEY_ID'],
   aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
   aws_region: 'ap-northeast-1'
