@@ -52,14 +52,14 @@
 
     <h1><%= link_to 'KAGE-Raw Lab.', '/' %></h1>
     <div class="tgif"><%= image_tag 'tgif-logo' %></div>
-    <div class="twitter"><%= link_to image_tag('twitter-logo'), 'https://twitter.com/kage_raw_lab', target: :_blank, method: :get %></div>
+    <div class="twitter"><%= link_to image_tag('twitter-logo'), 'https://twitter.com/kage_raw_lab?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false"', target: :_blank, method: :get %></div>
     <!--上について。イメージタグの後にスペースがあるとエラーになる-->
     <div class="about">
         <ul>
             <li><%= link_to '利用規約', '/items/terms_conditions' %></li>
             <li><%= link_to 'プライバシーポリシー', '/items/privacy' %></li>
             <li><%= link_to 'お問い合わせ', '/inquiries' %></li>
-            <li><i class="fab fa-twitter-square"></i>  <%= link_to 'リクエスト', 'https://twitter.com/kage_raw_lab', target: :_blank, method: :get %></li>
+            <li><i class="fab fa-twitter-square"></i><a href="https://twitter.com/messages/compose?recipient_id=&ref_src=twsrc%5Etfw" class="twitter-dm-button" data-screen-name="kage_raw_lab" data-show-count="false">リクエスト</a></li>
         </ul>
     </div>
     
