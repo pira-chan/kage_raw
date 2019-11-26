@@ -226,6 +226,9 @@ footer a {
   z-index:100;
 }
 
+
+
+
 .next-arrow {
   right: 20px;
   z-index:100;
@@ -311,6 +314,7 @@ header {
 font-size: 20px;
 text-align: center;
     margin: 0 auto;
+    font-family: "Allerta Stencil";
 
 }
 
@@ -400,6 +404,7 @@ text-align: center;
     margin-top :0px;
     margin-bottom :0px;
     padding-top: 15px;
+    font-family: "Allerta Stencil";
 }
 @media screen and (max-width: 1070px){
     .top-message h2 {
@@ -409,6 +414,7 @@ text-align: center;
     margin-top :0px;
     margin-bottom :0px;
     padding-top: 15px;
+    font-family: "Allerta Stencil";
 }
 }
 
@@ -482,6 +488,7 @@ text-align: center;
     font-size:30px;
     margin-top :0px;
     margin-bottom :0px;
+    font-family: "Allerta Stencil";
     
 }
 
@@ -561,7 +568,7 @@ text-align: center;
 }
 
 .dl_item {
-    width: 500px;
+    width: auto;
     height: 610px;
     display: flex;
     justify-content: center;
@@ -599,6 +606,24 @@ text-align: center;
     // color: white;
 }
 
+@media screen and (max-width: 1200px){
+     .detail {
+    max-height: 700px;
+    width: 300px;
+    float: left;
+    margin: 50px auto 50px auto;
+    padding: 15px 15px;
+    border-radius: 10px;
+    // border: 6px solid black;
+    background-color: 	#e8e8e8	;
+    // color: white;
+    
+}
+}
+
+
+
+
 .share {
     margin-top: 35px;
 }
@@ -610,7 +635,7 @@ text-align: center;
     display: none;
 }
 .content {
-    width: 1000px;
+    width: 74%;
     height: 700px;
     margin: 30px auto;
 }
