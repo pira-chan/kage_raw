@@ -587,7 +587,7 @@ text-align: center;
 }
 
 .dl_item {
-    width: auto;
+    width: 550px;
     height: 610px;
     display: flex;
     justify-content: center;
@@ -603,6 +603,28 @@ text-align: center;
     
 }
 
+@media screen and (max-width: 800px){
+.dl_item {
+    width: auto;
+    height: 610px;
+    display: flex;
+    justify-content: center;
+    float: left;
+    margin: 0px 1%;
+     border: 6px solid black;
+     border-radius: 10px;
+    // border: 1px solid ;
+    // object-fit: scale-down;
+    // 下の２つで真ん中へ表示    
+    display: flex;
+    justify-content: center;
+    
+}
+}
+
+
+
+
 .dl_item img {
     // 以下の5つで枠内にリサイズ
     width: auto;
@@ -616,7 +638,7 @@ text-align: center;
     
     max-height: 700px;
     width: 300px;
-    float: left;
+    float: right;
     margin: 0px 0px 0px 20px;
     padding: 15px 15px;
     border-radius: 10px;
@@ -625,18 +647,17 @@ text-align: center;
     // color: white;
 }
 
-@media screen and (max-width: 1200px){
+@media screen and (max-width: 1350px){
      .detail {
     max-height: 700px;
     width: auto;
-    float: left;
     margin: 50px auto 50px auto;
     padding: 15px 15px;
     border-radius: 10px;
     // border: 6px solid black;
     background-color: 	#e8e8e8	;
     // color: white;
-    
+    float: left;
 }
 }
 
@@ -654,7 +675,7 @@ text-align: center;
     display: none;
 }
 .content {
-    width: 74%;
+    width: 70%;
     height: 700px;
     margin: 30px auto;
 }
@@ -700,7 +721,6 @@ text-align: center;
 }
 
 .maketag-area p {
-    margin: 0px 0px;
     font-weight: bold;
 }
 .down-arrow {

@@ -17,7 +17,7 @@
             
             
             <% if @item.tag2 %>
-            <li class="tag2">
+            <li class="tag">
             <%= form_tag('/items/search', method: :get) do %>
             <%= text_field_tag :search, @item.tag2,  class: "hidden-search-field",placeholder: "キーワードを入力"%>
             <%= submit_tag @item.tag2, :name => nil, class: "tag-search-btn2" %>
