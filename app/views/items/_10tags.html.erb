@@ -3,7 +3,7 @@
                 
                 
                 
-            <% if @item.tag %>
+            <% unless @item.tag == ""%>
             <li class="tag">
             <%= form_tag('/items/search', method: :get) do %>
             <%= text_field_tag :search, @item.tag,  class: "hidden-search-field",placeholder: "キーワードを入力"%>
@@ -16,7 +16,7 @@
             <% end %>
             
             
-            <% if @item.tag2 %>
+            <% unless @item.tag2 == ""%>
             <li class="tag">
             <%= form_tag('/items/search', method: :get) do %>
             <%= text_field_tag :search, @item.tag2,  class: "hidden-search-field",placeholder: "キーワードを入力"%>
@@ -28,7 +28,7 @@
             <% end %>
             
             
-            <% if @item.tag3 %>
+            <% unless @item.tag3 == "" %>
             <li class="tag">
             <%= form_tag('/items/search', method: :get) do %>
             <%= text_field_tag :search, @item.tag3,  class: "hidden-search-field",placeholder: "キーワードを入力"%>
@@ -40,7 +40,7 @@
             <% end %>
             
             
-            <% if @item.tag4 %>
+            <% unless @item.tag4 == "" %>
             <li class="tag">
             <%= form_tag('/items/search', method: :get) do %>
             <%= text_field_tag :search, @item.tag4,  class: "hidden-search-field",placeholder: "キーワードを入力"%>
@@ -52,7 +52,7 @@
             <% end %>
             
             
-            <% if @item.tag5 %>
+            <% unless @item.tag5 == "" %>
             <li class="tag">
             <%= form_tag('/items/search', method: :get) do %>
             <%= text_field_tag :search, @item.tag5,  class: "hidden-search-field",placeholder: "キーワードを入力"%>
@@ -63,7 +63,7 @@
             <li class="tag-hidden"></li>
             <% end %>
             
-            <% if @item.tag6 %>
+            <% unless @item.tag6 == "" %>
             <li class="tag">
             <%= form_tag('/items/search', method: :get) do %>
             <%= text_field_tag :search, @item.tag6,  class: "hidden-search-field",placeholder: "キーワードを入力"%>
@@ -74,7 +74,7 @@
             <li class="tag-hidden"></li>
             <% end %>
             
-            <% if @item.tag7 %>
+            <% unless @item.tag7 == "" %>
             <li class="tag">
             <%= form_tag('/items/search', method: :get) do %>
             <%= text_field_tag :search, @item.tag7,  class: "hidden-search-field",placeholder: "キーワードを入力"%>
@@ -85,7 +85,7 @@
             <li class="tag-hidden"></li>
             <% end %>
             
-            <% if @item.tag8 %>
+            <% unless @item.tag8 == "" %>
             <li class="tag">
             <%= form_tag('/items/search', method: :get) do %>
             <%= text_field_tag :search, @item.tag8,  class: "hidden-search-field",placeholder: "キーワードを入力"%>
@@ -96,7 +96,7 @@
             <li class="tag-hidden"></li>
             <% end %>
             
-            <% if @item.tag9 %>
+            <% unless @item.tag9 == "" %>
             <li class="tag">
             <%= form_tag('/items/search', method: :get) do %>
             <%= text_field_tag :search, @item.tag9,  class: "hidden-search-field",placeholder: "キーワードを入力"%>
@@ -109,7 +109,7 @@
 
             
             
-            <% if @item.tag10 %>
+            <% unless @item.tag10 == "" %>
             <li class="tag">
             <%= form_tag('/items/search', method: :get) do %>
             <%= text_field_tag :search, @item.tag,  class: "hidden-search-field",placeholder: "キーワードを入力"%>
