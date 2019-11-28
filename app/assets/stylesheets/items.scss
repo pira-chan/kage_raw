@@ -221,6 +221,24 @@ footer a {
   font-weight: bold;
 }
 
+@media screen and (max-width: 426px){
+.prev-arrow,
+.next-arrow {
+    font-size: 0px;
+    position: absolute;
+    top: 50%;
+    margin: 0;
+    padding: 0;
+    display: none;
+    line-height: 1;
+    cursor: pointer;
+    font-weight: bold;
+}
+}
+
+
+
+
 .prev-arrow {
   left: 20px;
   z-index:100;
@@ -382,17 +400,17 @@ text-align: center;
     background-color:black;
     height: auto;
     color: white;
-    line-height: 95px;
+    line-height: 50px;
     text-align: center;
 }
 
 .transform {
     // float: right;
-    // padding: 33px 0px;
+    padding: 33px 0px;
     // margin-right : 14vw;
     
         /* float: right; */
-    padding: 0px 0px 33px 0px;
+    // padding: 0px 0px 33px 0px;
     /* margin: 0 auto; */
     /* text-align: center; */
     width: 80px;
@@ -415,7 +433,7 @@ text-align: center;
     // font-size:2vw;
     margin-top :0px;
     margin-bottom :0px;
-    padding-top: 15px;
+    padding-top: 30px;
     font-family: "Allerta Stencil";
 }
 @media screen and (max-width: 1070px){
@@ -425,7 +443,7 @@ text-align: center;
     // font-size: 5vw;
     margin-top :0px;
     margin-bottom :0px;
-    padding-top: 15px;
+    padding-top: 30px;
     font-family: "Allerta Stencil";
 }
 }
