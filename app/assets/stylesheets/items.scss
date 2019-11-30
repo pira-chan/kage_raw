@@ -629,7 +629,7 @@ text-align: center;
     display: flex;
     justify-content: center;
     float: left;
-    margin: 0px 1%;
+    margin: 0px 20px;
      border: 6px solid black;
      border-radius: 10px;
     // border: 1px solid ;
@@ -647,7 +647,7 @@ text-align: center;
     display: flex;
     justify-content: center;
     float: left;
-    margin: 0px 1%;
+    margin: 0px 30px;
      border: 6px solid black;
      border-radius: 10px;
     // border: 1px solid ;
@@ -684,11 +684,27 @@ text-align: center;
     // color: white;
 }
 
-@media screen and (max-width: 1350px){
+@media screen and (max-width: 1370px){
+.detail {
+    
+    max-height: 700px;
+    width: 550px;
+    float: left;
+    margin: 50px 20px 50px 20px;
+    padding: 15px 15px;
+    border-radius: 10px;
+    background-color: #e8e8e8;
+
+}
+}
+
+
+
+@media screen and (max-width: 800px){
      .detail {
     max-height: 700px;
     width: auto;
-    margin: 50px auto 50px auto;
+    margin: 50px 30px 50px 30px;
     padding: 15px 15px;
     border-radius: 10px;
     // border: 6px solid black;
@@ -716,6 +732,18 @@ text-align: center;
     height: 700px;
     margin: 30px auto;
 }
+
+@media screen and (max-width: 800px){
+.content {
+    width: 100%;
+    height: 700px;
+    margin: 30px auto;
+}
+}
+
+
+
+
 
 .dl_tag {
 
