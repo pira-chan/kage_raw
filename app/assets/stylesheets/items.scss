@@ -28,9 +28,9 @@
 }
 
 .new {
-    margin: 0px 0px;
-    margin-top: -18px;
-    font-size: 12px;
+    margin-top: -23px;
+    margin-bottom : 3px;
+    font-size: 15px;
     color: red;
 }
 
@@ -528,6 +528,10 @@ text-align: center;
 }
 
 
+.next-sen {
+    margin-top: 0px;
+    font-size: 20px;
+}
 
 
 
@@ -535,9 +539,7 @@ text-align: center;
 .next-sen {
     margin-top: 0px;
     font-size: 15px;
-    
 }
-
 }
 
 
@@ -606,8 +608,8 @@ text-align: center;
     display: block;
     border: 0px #FF0000 solid;
     text-align: center;
-    width:140px;
-    height:45px;
+    width: 140px;
+    height: 45px;
     background-color: #FF0000;
     line-height: 40px;
     border-radius: 10px;
