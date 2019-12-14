@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # 上はどうだろう？アイディを含める
   # post  'items/create' => 'items#create'
   get   'items/:id/show'  => 'items#show'
-  get  'items/:dl_id/download' => 'items#download'
+  get  'items/:id/download' => 'items#download'
   get 'items/not_found' => 'items#not_found'
   get 'items/terms_conditions' => 'items#terms_conditions'
   get 'items/privacy' => 'items#privacy'

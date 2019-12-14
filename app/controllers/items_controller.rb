@@ -52,8 +52,8 @@ class ItemsController < ApplicationController
     
     def download
         
-        #  @item = Item.find(params[:title])
-         @item = Item.find_by!(dl_id: params[:dl_id])
+        @item = Item.find(params[:id])
+        # @item = Item.find_by!(dl_id: params[:dl_id])
          render :download, layout: false
     end
     
