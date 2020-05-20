@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
     # ↑が無いとタグ投稿時、ときどきInvalidAuthenticityTokenが発生する
     
     def index
-        @items =  Item.all.order("id DESC").page(params[:page]).per(12)
+        @items =  Item.all.order("id DESC").page(params[:page]).per(15)
     end
     
     def search
