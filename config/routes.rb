@@ -15,9 +15,9 @@ Rails.application.routes.draw do
   get 'items/privacy' => 'items#privacy'
   
   
-  get 'inquiries' => 'inquiries#index'              # 入力画面
-  post 'inquiries/confirm' => 'inquiries#confirm'   # 確認画面
-  post 'inquiries/thanks' => 'inquiries#thanks'    # 送信完了画面
+  get 'inquiries' => 'inquiries#index'              # お問い合わせ入力画面
+  post 'inquiries/confirm' => 'inquiries#confirm'   # お問い合わせ確認画面
+  post 'inquiries/thanks' => 'inquiries#thanks'    # お問い合わせ送信完了画面
   
   get '/sitemap' => redirect('https://s3-ap-northeast-1.amazonaws.com/kage-raw/sitemaps/sitemap.xml.gz')  # サイトマップをＳ３に
 

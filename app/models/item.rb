@@ -9,9 +9,9 @@ class Item < ApplicationRecord
     end
     
     
-    def to_param
-      return self.dl_id
-    end
+    # def to_param
+    #   return self.dl_id
+    # end
     
 
 end
