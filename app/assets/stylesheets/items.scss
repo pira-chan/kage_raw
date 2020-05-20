@@ -49,7 +49,7 @@
     margin: 0px auto;
     display: flex;
     flex-wrap: wrap;  
-    justify-content: flex-start;  
+    justify-content: center;  
 /*    今は繰り返しがないため、要素をただ並べている。上のjustify-content: flex-start; で右から並べているため、左に余白が生まれる模様。justify-content: space-between; を使えば、均等に幅を作れるが、要素の数で表示が変わる。*/
 }
 
