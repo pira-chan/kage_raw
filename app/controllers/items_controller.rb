@@ -73,6 +73,6 @@ class ItemsController < ApplicationController
         # ここに:idをいれるとエラー、しかし入れないと新規レコードして登録されてしまう。。。
     end
     
-
+    # てすと
 
 end
