@@ -426,35 +426,29 @@ text-align: center;
 
 
 .top-message {
-    background-color:black;
+    background-color: black;
     height: auto;
     color: white;
-    line-height: 50px;
+    padding-top: 20px;
+    /* line-height: 50px; */
     text-align: center;
 }
 
 .transform {
-    // float: right;
-    padding: 33px 0px;
-    // margin-right : 14vw;
-    
-        /* float: right; */
-    // padding: 0px 0px 33px 0px;
-    /* margin: 0 auto; */
-    /* text-align: center; */
-    width: 80px;
+    padding: 40px 0px 0px 0px; 
     margin: 0 auto;
+    background-color: black;
 }
 
-@media screen and (max-width: 630px){
-    .transform {
-    padding: 33px 0px;
-    /* margin: 0 auto; */
-    /* text-align: center; */
-    width: 80px;
-    margin: 0 auto;
-}
-}
+// @media screen and (max-width: 630px){
+//     .transform {
+//     padding: 33px 0px;
+//     /* margin: 0 auto; */
+//     /* text-align: center; */
+//     width: 80px;
+//     margin: 0 auto;
+// }
+// }
 
 .top-message h2 {
     width: 900px;
@@ -462,7 +456,7 @@ text-align: center;
     // font-size:2vw;
     margin-top :0px;
     margin-bottom :0px;
-    padding-top: 30px;
+    // padding-top: 30px;
     font-family: "Allerta Stencil";
 }
 @media screen and (max-width: 1070px){
@@ -472,16 +466,60 @@ text-align: center;
     // font-size: 5vw;
     margin-top :0px;
     margin-bottom :0px;
-    padding-top: 30px;
+    // padding-top: 30px;
     font-family: "Allerta Stencil";
 }
 }
+
+.before-after{
+    padding: 30px 10px 20px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+.before-message h3{
+    text-align: center;
+}
+
+
+
+.before-pic{
+    height :200px;
+    // padding-right: 35px;
+}
+
+.before{
+    margin-right: 35px;
+}
+.after {
+    margin-left: 35px;
+}
+
+.after-pic{
+    height :200px;
+    // padding-left: 35px;
+}
+
+@media screen and (max-width: 769px){
+    .after{
+    margin-left: 0px;
+    
+}}
+
+
+@media screen and (max-width: 769px){
+    .before{
+    margin-right: 0px;
+    
+}}
 
 .sub-message-area {
     margin: 0px auto;
     background-image: url("silver-back");
     background-size:cover;
-    height: 350px;
+    // height: 350px;
     
 }
 .sub-message {
