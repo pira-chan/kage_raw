@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
-
+    has_many :item_tags
+    has_many :tags, through: :item_tags
     
     validates :suggest, {length: {minimum:1}}
     validates :suggest, {length: {maximum:20}}

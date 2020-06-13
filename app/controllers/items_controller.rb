@@ -7,43 +7,36 @@ class ItemsController < ApplicationController
         @items =  Item.all.order("id DESC").page(params[:page]).per(15)
     end
     
-    def search
+    def new
+        
+    end
     
-          
-        
+    def create
+    
+    end
+    
+    def search
         @searched_items = Item.search(params[:search]).order("created_at DESC").page(params[:page]).per(25)
-        
         if @searched_items.blank?
-          
           redirect_to "/items/not_found"
         end
     end
     
-    def show0
+    def pre_show
         @item = Item.find(params[:id])
-
     end
     
     
     def maketag
-
-        
         @item = Item.find(params[:id])
         if @item.update(create_params)
         # createはダメだった。。
-
         InquiryMailer.maketag_email(@item).deliver
         redirect_to "/items/#{@item.id}/show"
-        
         else
             flash.now[:hoge] = "１文字以上２０文字以内のタグを入力してください！"
             render :show0
-            
-            
-            
-        # render :show
         end
-            
     end
     
     def show
@@ -51,18 +44,26 @@ class ItemsController < ApplicationController
     end
     
     def download
-        
         @item = Item.find(params[:id])
         # @item = Item.find_by!(dl_id: params[:dl_id])
          render :download, layout: false
     end
     
     def not_found
-        
     end
     
     def terms_conditions
-        
+    end
+    
+    def management
+        @item = Item.find(params[:id])
+    end
+    
+    def tag_addition
+        @item = Item.find(params[:id])
+        @item.tags.build(adopt_tag: tag_params[:adopt_tag], item_title: tag_params[:item_title])
+        @item.save
+        redirect_to "/items/#{@item.id}/management"
     end
     
     def privacy
@@ -71,6 +72,10 @@ class ItemsController < ApplicationController
     def create_params
         params.require(:item).permit(:suggest)
         # ここに:idをいれるとエラー、しかし入れないと新規レコードして登録されてしまう。。。
+    end
+    
+    def tag_params
+        params.require(:tags).permit(:adopt_tag ,:item_title)
     end
     
     # てすと

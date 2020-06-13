@@ -997,3 +997,24 @@ body {
 }
 
 
+.to_admin{
+    text-align: center;
+}
+
+.adopt_tag_list{
+    height: 200px;
+    width: 90%;
+    padding: 10px 10px;
+    border: 2px solid black;
+    margin: 10px 10px;
+    word-wrap: break-word;
+    display: flex;
+}
+
+.suggest_tag_list{
+    height: auto;
+    width: 90%;
+    padding: 10px 10px;
+    margin: 10px 10px;
+    display: flex;
+}

@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   root 'items#index'
   get 'items' => 'items#index'
   get 'items/search' => 'items#search'
-  get   'items/:id/show0'  => 'items#show0'
+  get   'items/:id/management'  => 'items#management'
+  patch   'items/:id/tag_addition'  => 'items#tag_addition'
+  get   'items/:id/pre_show'  => 'items#pre_show'
+
   patch 'items/:id/maketag'  => 'items#maketag'
   # post  'items/:id/create' => 'items#create'
   # 上はどうだろう？アイディを含める

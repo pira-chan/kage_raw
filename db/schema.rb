@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_31_120651) do
+ActiveRecord::Schema.define(version: 2020_06_12_081357) do
 
   create_table "inquiries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 2019_10_31_120651) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "item_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "item_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_item_tags_on_item_id"
+    t.index ["tag_id"], name: "index_item_tags_on_tag_id"
+  end
+
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
     t.text "tag"
@@ -27,7 +36,6 @@ ActiveRecord::Schema.define(version: 2019_10_31_120651) do
     t.text "item"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string "dl_id"
     t.text "suggest"
     t.text "tag2"
     t.text "tag3"
@@ -46,4 +54,14 @@ ActiveRecord::Schema.define(version: 2019_10_31_120651) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "item_title"
+    t.text "suggest_tag"
+    t.text "adopt_tag"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "item_tags", "items"
+  add_foreign_key "item_tags", "tags"
 end

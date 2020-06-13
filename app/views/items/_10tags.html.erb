@@ -1,19 +1,12 @@
 <div class="dl_tag">
+    
+<ul>    
+<% @item.tags.each do |tag| %>
+<li class="tag">#<%= tag.adopt_tag %>　</li>
+<% end %>
+</ul>
             <ul>
-                
-                
-                
-            <% unless @item.tag == ""%>
-            <li class="tag">
-            <%= form_tag('/items/search', method: :get) do %>
-            <%= text_field_tag :search, @item.tag,  class: "hidden-search-field",placeholder: "キーワードを入力"%>
-            <%= submit_tag @item.tag, :name => nil, class: "tag-search-btn2" %>
-            <% end %>   
-            </li>
-            <% else %>
-            <li class="tag-hidden">
-            </li>
-            <% end %>
+            
             
             
             <% unless @item.tag2 == ""%>
