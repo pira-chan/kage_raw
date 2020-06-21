@@ -16,7 +16,7 @@ class ItemsController < ApplicationController
     end
     
     def search
-        @searched_items = Item.search(params[:search]).order("created_at DESC").page(params[:page]).per(25)
+        @searched_items = Item.search(params[:search]).order("items.created_at DESC").page(params[:page]).per(25)
         if @searched_items.blank?
           redirect_to "/items/not_found"
         end
@@ -29,13 +29,14 @@ class ItemsController < ApplicationController
     
     def maketag
         @item = Item.find(params[:id])
-        if @item.update(create_params)
+        @item.suggests.build(suggest_tag: maketag_params[:suggest_tag], item_title: @item.title)
+        if @item.save
         # createはダメだった。。
         InquiryMailer.maketag_email(@item).deliver
         redirect_to "/items/#{@item.id}/show"
         else
-            flash.now[:hoge] = "１文字以上２０文字以内のタグを入力してください！"
-            render :show0
+            flash.now[:alert] = "２０文字以内のタグを入力して下さい！"
+            render :pre_show
         end
     end
     
@@ -61,7 +62,7 @@ class ItemsController < ApplicationController
     
     def tag_addition
         @item = Item.find(params[:id])
-        @item.tags.build(adopt_tag: tag_params[:adopt_tag], item_title: tag_params[:item_title])
+        @item.tags.build(adopt_tag: tag_params[:adopt_tag], item_title: @item.title)
         @item.save
         redirect_to "/items/#{@item.id}/management"
     end
@@ -69,13 +70,13 @@ class ItemsController < ApplicationController
     def privacy
     end
     
-    def create_params
-        params.require(:item).permit(:suggest)
+    def maketag_params
+        params.require(:suggests).permit(:suggest_tag)
         # ここに:idをいれるとエラー、しかし入れないと新規レコードして登録されてしまう。。。
     end
     
     def tag_params
-        params.require(:tags).permit(:adopt_tag ,:item_title)
+        params.require(:tags).permit(:adopt_tag)
     end
     
     # てすと

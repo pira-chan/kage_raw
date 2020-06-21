@@ -28,8 +28,8 @@
                 <h3><%=@item.title%></h3>
             </div>
 <%= render partial: "10tags"%>
-            　　<div class="maketag-area">
-                </div> 
+            　　<!--<div class="maketag-area">-->
+              <!--  </div> -->
 
             <div class="dl_button">
                 <!--<p><a href="/items/#{@item.id}/show">ダウンロード</a></p-->
@@ -51,5 +51,5 @@
         
         </div>
 </div>
-<h5 class="plz-request">よろしければ、ページ下部よりリクエストください！</h5>
+<%= render partial: "bottom"%>
 

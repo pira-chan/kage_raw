@@ -1,12 +1,13 @@
 class Item < ApplicationRecord
     has_many :item_tags
+    has_many :item_suggests
     has_many :tags, through: :item_tags
+    has_many :suggests, through: :item_suggests
     
-    validates :suggest, {length: {minimum:1}}
-    validates :suggest, {length: {maximum:20}}
+
     
     def self.search(search)
-      Item.where(['tag LIKE ? OR title LIKE? OR tag2 LIKE ? OR tag3 LIKE ? OR tag4 LIKE ? OR tag5 LIKE ? OR tag6 LIKE ? OR tag7 LIKE ? OR tag8 LIKE ? OR tag9 LIKE ? OR tag10 LIKE ?', "%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%"])
+      Item.includes(:tags).where(['title LIKE ? OR adopt_tag LIKE?', "%#{search}%","%#{search}%"]).references(:tags) 
     end
     
     
