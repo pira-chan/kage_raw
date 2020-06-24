@@ -1,0 +1,24 @@
+<%= form_for @item, url: "tag_addition" do |f| %>
+
+        <%= fields_for :tags do |f| %>
+        <%= f.text_field :adopt_tag %>
+        <% end %>
+        
+<%= f.submit %>
+<% end %>
+
+ <h4>適用タグ一覧<br/></h4>
+ <div class="adopt_tag_list">
+<% @item.tags.each do |tag| %>
+<p>#<%= tag.adopt_tag %>　</p>
+<% end %>
+</div>
+
+<h4>提案タグ一覧</h4>
+ <div class="suggest_tag_list">
+<% @item.suggests.each do |suggests| %>
+<p>#<%= suggests.suggest_tag %></p>
+<% end %>
+</div>
+
+
