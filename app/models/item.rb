@@ -7,7 +7,7 @@ class Item < ApplicationRecord
 
     
     def self.search(search)
-      Item.includes(:tags).where(['title LIKE ? OR adopt_tag LIKE?', "%#{search}%","%#{search}%"]).references(:tags) 
+      Item.includes(:tags).where(['title LIKE? OR adopt_tag LIKE?', "%#{search}%","%#{search}%"]).references(:tags) 
     end
     
     
