@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'items#index'
   get 'items' => 'items#index'
@@ -11,6 +12,8 @@ Rails.application.routes.draw do
   # post  'items/:id/create' => 'items#create'
   # 上はどうだろう？アイディを含める
   # post  'items/create' => 'items#create'
+
+  delete 'tags/:id'  => 'tags#destroy'
   get   'items/:id/show'  => 'items#show'
   get  'items/:id/download' => 'items#download'
   get 'items/not_found' => 'items#not_found'

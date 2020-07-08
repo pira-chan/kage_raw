@@ -77,3 +77,4 @@ end
 
 gem 'sitemap_generator'
 gem 'aws-sdk'
+gem 'devise'

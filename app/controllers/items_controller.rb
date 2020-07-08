@@ -15,6 +15,8 @@ class ItemsController < ApplicationController
     
     end
     
+
+    
     def search
         @searched_items = Item.search(params[:search]).order("items.created_at DESC").page(params[:page]).per(25)
         if @searched_items.blank?
