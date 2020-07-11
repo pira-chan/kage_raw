@@ -315,7 +315,7 @@ header {
     width: 80px;
   
     margin-right: 20px;
-        position: relative;
+    position: relative;
  
   
 
@@ -330,11 +330,48 @@ header {
 
   
 }
-
-.check-in {
-    margin: 10px 20px 0px 0px;
-    height: 30px;
+.check_in_menu {
     float: right;
+    display: flex;
+}
+
+
+
+.sign_out {
+    margin: 10px 0px 0px 0px;
+    width: 100px;
+    display: block;
+    text-align: center;
+    border: 2px white solid;
+    height: 26px;
+    line-height: 28px;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.sign_out:hover {
+    opacity: 0.7;
+}
+
+
+.sign_out a {
+    text-decoration: none;
+    color: white;    
+}
+
+.user-name{
+    margin-bottom: 0px;
+    font-size: 14px;
+    margin-bottom: 0px;
+    text-align: end;
+    height: 30px;
+}
+.check-in {
+    margin: 10px 20px 0px 20px;
+    height: 30px;
+    /* float: right; */
     width: 100px;
     line-height: 32px;
     display: block;
@@ -346,13 +383,15 @@ header {
     cursor: pointer;
 }
 
+.check-in a {
+    text-decoration: none;
+    color: white;
+}
+
 .check-in:hover {
     opacity: 0.7;
 }
 
-.check-in p{
-    margin: 0px 0px;
-}
 
 
 .title-box h1{
@@ -1055,9 +1094,20 @@ body {
     text-align: center;
 }
 
+
+
+
 .field {
     margin: 20px 0px;
 }
+
+input[type="text"] {
+        width: 200px;
+    }
+
+input[type="email"] {
+        width: 300px;
+    }
 
 .data_list {
     width: 80%;
