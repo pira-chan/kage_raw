@@ -1,6 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+  config.app_domain= 'https://39ce892b3d9b469f866285455fa206f4.vfs.cloud9.ap-southeast-1.amazonaws.com'
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
