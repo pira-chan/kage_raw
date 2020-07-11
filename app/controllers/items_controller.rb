@@ -8,11 +8,12 @@ class ItemsController < ApplicationController
     end
     
     def new
-        
+        @item = Item.new
     end
     
     def create
-    
+        Item.create(title: item_params[:title], cr_item: item_params[:cr_item], dl_item: item_params[:dl_item])
+        redirect_to "/items/data_list"
     end
     
 
@@ -62,6 +63,10 @@ class ItemsController < ApplicationController
         @item = Item.find(params[:id])
     end
     
+    def data_list
+        @items = Item.includes(:tags).order("id DESC").page(params[:page]).per(100)
+    end
+    
     def tag_addition
         @item = Item.find(params[:id])
         @item.tags.build(adopt_tag: tag_params[:adopt_tag], item_title: @item.title)
@@ -81,6 +86,8 @@ class ItemsController < ApplicationController
         params.require(:tags).permit(:adopt_tag)
     end
     
-    # てすと
+    def item_params
+        params.require(:item).permit(:title, :cr_item, :dl_item)
+    end
 
 end

@@ -1,0 +1,20 @@
+
+<p><%= link_to "新規作成","/items/new", method: :get %></p>
+<div class="data_list">
+<% @items.each do |item| %>
+    
+    <ul>
+        <div class="data_list_image"><%= link_to image_tag(item.dl_item), "/items/#{item.id}/pre_show" %></div>
+        <li><%= item.id  %></li>
+        <li><%= item.title  %></li>
+        <li><%= item.cr_item  %></li>
+        <li><%= item.dl_item  %></li>
+         <li><%= link_to "タグ管理","/items/#{item.id}/management", method: :get %></li>
+        <% item.tags.each do |tag| %>
+        <li class="adopt_tag_row">#<%= tag.adopt_tag %>　</li>
+        <% end %>
+       
+    </ul>
+    
+<% end %>
+</div>

@@ -3,11 +3,14 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'items#index'
   get 'items' => 'items#index'
+  get 'items/new' => 'items#new'
+  
   get 'items/search' => 'items#search'
   get   'items/:id/management'  => 'items#management'
+  get   'items/data_list'  => 'items#data_list'
   patch   'items/:id/tag_addition'  => 'items#tag_addition'
   get   'items/:id/pre_show'  => 'items#pre_show'
-
+  post 'items' => 'items#create'
   patch 'items/:id/maketag'  => 'items#maketag'
   # post  'items/:id/create' => 'items#create'
   # 上はどうだろう？アイディを含める

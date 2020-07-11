@@ -6,8 +6,8 @@ $(document).on('turbolinks:load', function (){
             autoplaySpeed: 2000,
             dots: true,
             speed: 3500,
-            prevArrow: '<span class="prev-arrow">&lt;</span>',
-            nextArrow: '<span class="next-arrow">&gt;</span>',
+            prevArrow: '<span class="prev-arrow"></span>',
+            nextArrow: '<span class="next-arrow"></span>',
           });
       });
       
