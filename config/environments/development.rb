@@ -60,6 +60,7 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   
   # Don't care if the mailer can't send.
+
 config.action_mailer.raise_delivery_errors = true
 config.action_mailer.default_url_options = { :host => 'https://39ce892b3d9b469f866285455fa206f4.vfs.cloud9.ap-southeast-1.amazonaws.com' }
 config.action_mailer.delivery_method = :smtp
