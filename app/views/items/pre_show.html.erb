@@ -13,11 +13,11 @@
 
 
 <%= render partial: "tags"%>
-
-<!--<div class="to_admin">-->
-<!--<%= link_to "管理画面","/items/#{@item.id}/management", method: :get %>     -->
-<!--ここはdeviseのadminを利用して自分しか表示させない-->
-<!--</div>-->
+<% if user_signed_in? && current_user.admin? %>
+    <div class="to_admin">
+    <%= link_to "管理画面","/items/#{@item.id}/management", method: :get %>     
+    </div>
+<% end %>
 
 <div class="content">    
     

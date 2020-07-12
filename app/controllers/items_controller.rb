@@ -64,7 +64,7 @@ class ItemsController < ApplicationController
     end
     
     def data_list
-        @items = Item.includes(:tags).order("id DESC").page(params[:page]).per(100)
+        @items = Item.includes(:tags).order("id DESC").page(params[:page]).per(50)
     end
     
     def tag_addition

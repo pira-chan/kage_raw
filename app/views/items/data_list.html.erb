@@ -1,20 +1,55 @@
+<% if user_signed_in? && current_user.admin? %>
+    <p><%= link_to "新規作成","/items/new", method: :get %></p>
+    <div class="data_list">
+    <% @items.each do |item| %>
+        
+        <ul>
+            <div class="data_list_image"><%= link_to image_tag(item.dl_item), "/items/#{item.id}/pre_show" %></div>
+            <li><%= item.id  %></li>
+            <li><%= item.title  %></li>
+            <li><%= item.cr_item  %></li>
+            <li><%= item.dl_item  %></li>
+             <li><%= link_to "タグ管理","/items/#{item.id}/management", method: :get %></li>
+            <% item.tags.each do |tag| %>
+            <li class="adopt_tag_row">#<%= tag.adopt_tag %>　</li>
+            <% end %>
+        </ul>
+    <% end %>
+    <%= paginate @items %>
+    </div>
+<% else %>
 
-<p><%= link_to "新規作成","/items/new", method: :get %></p>
-<div class="data_list">
-<% @items.each do |item| %>
-    
-    <ul>
-        <div class="data_list_image"><%= link_to image_tag(item.dl_item), "/items/#{item.id}/pre_show" %></div>
-        <li><%= item.id  %></li>
-        <li><%= item.title  %></li>
-        <li><%= item.cr_item  %></li>
-        <li><%= item.dl_item  %></li>
-         <li><%= link_to "タグ管理","/items/#{item.id}/management", method: :get %></li>
-        <% item.tags.each do |tag| %>
-        <li class="adopt_tag_row">#<%= tag.adopt_tag %>　</li>
-        <% end %>
+    <div class="search-area">
        
-    </ul>
+            <%= form_tag('/items/search', method: :get, class: "lets-search") do %>
+            <!--ここを'/posts/search'にしておくことでページ遷移させて、検索結果を表示させる-->
+            <%= text_field_tag :search, "", class: "search-field", placeholder: "キーワードを入力"%>
+            <%= submit_tag '検索する', :name => nil, class: "search-btn" %>
+            <% end %>      
     
+    </div>    
+    
+    
+    <!--<div class="search-area">      -->
+    
+    <%= render partial: "tags"%>
+    
+    
+    <div class="items-list">
+    <% @items.each do |item| %>
+        <div class="item">
+            <% if item == Item.last %>
+            <p class = "new">NEW</p>
+            <% end %>
+            <%= link_to image_tag(item.cr_item), "/items/#{item.id}/pre_show" %>
+            <%= link_to item.title, "/items/#{item.id}/pre_show", method: :get %>
+        </div>
+        <% end %>
+    </div>
+        
+    <div class="show-more">
+            <a href="/items/search">もっと見る</a>
+    </div>
+    <%= render partial: "items/bottom"%>
+
 <% end %>
-</div>
