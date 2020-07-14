@@ -1056,7 +1056,7 @@ body {
 .plz-request{
     // font-size: 20px;
     text-align: center;
-    clear: both;
+    
     // display: block;
     // width: 380px;
     // margin: 80px auto 0px auto;
@@ -1149,6 +1149,35 @@ input[type="email"] {
 }
 
 .kage-request img{
+    max-width: 80%;
+    height: auto;
+}
+
+@media screen and (max-width: 426px){
+.kage-request img {
     max-width: 100%;
     height: auto;
+}
+}
+
+.registration-btn  {
+    text-align: center;
+    width:140px;
+    height:40px;
+    background-color: red;
+    line-height: 40px;
+    border-radius: 10px;
+    margin: 50px auto;
+    display: block;
+}
+
+.registration-btn:hover {
+    opacity: 0.7;
+}
+
+.registration-btn a {
+    
+    color: white;
+    text-decoration: none;
+    display: block;
 }
