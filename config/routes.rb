@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   get 'items/terms_conditions' => 'items#terms_conditions'
   get 'items/privacy' => 'items#privacy'
   
+  get 'users/:id' => 'users#mypage'
+  
   
   get 'inquiries' => 'inquiries#index'              # お問い合わせ入力画面
   post 'inquiries/confirm' => 'inquiries#confirm'   # お問い合わせ確認画面
