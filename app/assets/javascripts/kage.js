@@ -5,7 +5,7 @@ $(document).on('turbolinks:load', function (){
             dots: false,
             appendArrows: $('.transform'),
             prevArrow: '<span class="prev-arrow"></span>',
-            nextArrow: '<div class="next-kage">変身！</div>',
+            nextArrow: '<div class="next-kage">カゲを変える！</div>',
           });
       });
       

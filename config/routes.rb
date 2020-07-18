@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get 'items/not_found' => 'items#not_found'
   get 'items/terms_conditions' => 'items#terms_conditions'
   get 'items/privacy' => 'items#privacy'
+  get 'items/whats_kage_request' => 'items#whats_kage_request'
   
   get 'users/:id' => 'users#mypage'
   

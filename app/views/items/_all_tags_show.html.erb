@@ -1,8 +1,5 @@
-<div class="dl_tag">
-    
-    <ul>
-        
-        <% @item.tags.first(10).each do |tag| %>
+<div class="all_tags_show">
+        <% @item.tags.each do |tag| %>
 
                 <li class="tag">
                             <%= form_tag('/items/search', method: :get) do %>
@@ -11,6 +8,4 @@
                             <% end %>
                 </li>            
         <% end %>
-    
-    </ul>
 </div>
