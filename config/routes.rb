@@ -4,9 +4,11 @@ Rails.application.routes.draw do
    }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'items#index'
+  resources :requests   #実験用
   resources :users, :except => :show do
     resources :request
   end
+  
   get 'items' => 'items#index'
   get 'items/new' => 'items#new'   #管理者アイテム作成画面
   post 'items' => 'items#create'   #管理者アイテム作成画面
