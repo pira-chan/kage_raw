@@ -884,10 +884,15 @@ text-align: center;
 
 
 .all_tags_show {
+    display: table;
     clear: both;
-    width: 60%;
-    min-height: 100px;
+    width: 80%;
+    background-color: #e8e8e8;
+    /* min-height: 100px; */
+    /* max-height: 600px; */
     margin: 0 auto;
+//     /* height: fit-content;
+    border-radius: 10px;
 }
 
 
@@ -1053,6 +1058,7 @@ body {
     // font-size: 20px;
     text-align: center;
     margin-top: 100px;
+    clear: both;
     // display: block;
     // width: 380px;
     // margin: 80px auto 0px auto;
