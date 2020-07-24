@@ -4,6 +4,8 @@ ja:
       models:
         user:
           attributes:
+            nickname:
+             blank: "ニックネームを入力してください"
             email:
               taken: "は既に使用されています。"
               blank: "が入力されていません。"

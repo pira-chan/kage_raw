@@ -1,4 +1,4 @@
-<% if user_signed_in? && current_user.admin? %>
+<% if current_user.admin? %>
     <p><%= link_to "新規作成","/items/new", method: :get %></p>
     <div class="data_list">
     <% @items.each do |item| %>

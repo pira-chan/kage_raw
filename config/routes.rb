@@ -1,22 +1,25 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => {
+    :registrations => 'users/registrations'
+   }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'items#index'
+  resources :users, :except => :show do
+    resources :request
+  end
   get 'items' => 'items#index'
-  get 'items/new' => 'items#new'
-  
+  get 'items/new' => 'items#new'   #管理者アイテム作成画面
+  post 'items' => 'items#create'   #管理者アイテム作成画面
+  patch   'items/:id/tag_addition'  => 'items#tag_addition'#管理者タグ編集画面
+  delete 'tags/:id'  => 'tags#destroy'#管理者タグ編集画面
   get 'items/search' => 'items#search'
   get   'items/:id/management'  => 'items#management'
   get   'items/data_list'  => 'items#data_list'
-  patch   'items/:id/tag_addition'  => 'items#tag_addition'
   get   'items/:id/pre_show'  => 'items#pre_show'
-  post 'items' => 'items#create'
-  patch 'items/:id/maketag'  => 'items#maketag'
+  # patch 'items/:id/maketag'  => 'items#maketag'
   # post  'items/:id/create' => 'items#create'
   # 上はどうだろう？アイディを含める
   # post  'items/create' => 'items#create'
-
-  delete 'tags/:id'  => 'tags#destroy'
   get   'items/:id/show'  => 'items#show'
   get  'items/:id/download' => 'items#download'
   get 'items/not_found' => 'items#not_found'
@@ -25,6 +28,7 @@ Rails.application.routes.draw do
   get 'items/whats_kage_request' => 'items#whats_kage_request'
   
   get 'users/:id' => 'users#mypage'
+  
   
   
   get 'inquiries' => 'inquiries#index'              # お問い合わせ入力画面

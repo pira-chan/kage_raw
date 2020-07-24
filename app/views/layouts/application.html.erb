@@ -47,20 +47,25 @@
                 
                 
             
-              <h5>背景がないシルエットイラスト</h5>
+              <h5>背景のないシルエットイラスト</h5>
               </div>
                   <div class="check_in_menu">
                       <% if user_signed_in? %>
                           <div class="user-name"><%= current_user.nickname %><br>サマ</div>
                           <div class="check-in">
-                              <%= link_to 'リクエスト', '' %>
+                              <%= link_to 'リクエスト', '/users/mypage' %>
                         　</div>
                           <div class="sign_out">
                               <%= link_to('ログアウト', destroy_user_session_path, :method => :delete) %>
                           </div>
+                          <% if current_user.admin? %>
+                              <div class="check-in"><%= link_to 'データリスト', '/items/data_list' %></div>
+                              <div class="check-in"><%= link_to 'リクエス管理', '/' %></div>
+                          <% end %>
                     　<% else %>
                           <div class="check-in"><%= link_to 'ログイン', '/users/sign_in' %></div>
                           <div class="check-in"><%= link_to '会員登録', '/users/sign_up' %></div>
+                          
                       <% end %>
                   </div>
 

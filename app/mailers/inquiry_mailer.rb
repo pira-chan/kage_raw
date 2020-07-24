@@ -12,5 +12,9 @@ class InquiryMailer < ApplicationMailer
     @item = item
     mail(:subject => 'タグが投稿されました')
   end
+  
+  def registration_email
+    mail(:subject => '新規登録がありました')
+  end
     
 end

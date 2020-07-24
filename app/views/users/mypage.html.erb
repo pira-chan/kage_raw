@@ -1,1 +1,20 @@
 <p><%= @nickname %>様のマイページ</p>
+
+<%= form_for @user do |f| %> 
+    <%= fields_for :requests do |f| %>
+    <%= f.text_field :text %>
+    <%= f.file_field :request_image %>
+    <% end %>
+    <%= f.submit %>
+<% end %> 
+
+<% @user.requests.each do |r| %>
+<%= r.name %>
+<%= r.text %>
+<% if r.request_image.attached? %>
+    <%= image_tag r.request_image %>
+<% end %>
+<% end %>
+
+
+
