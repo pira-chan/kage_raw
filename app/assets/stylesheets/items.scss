@@ -476,6 +476,15 @@ text-align: center;
     padding-top: 20px;
 }
 
+@media screen and (max-width: 426px){
+.couple-kage {
+    max-width: 100%;
+    height: auto; 
+    margin: auto;
+    padding-top: 120px; 
+}
+}
+
 .message-area {
     position: absolute;
     width: 45%;
