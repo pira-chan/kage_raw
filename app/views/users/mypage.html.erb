@@ -1,4 +1,5 @@
 <p><%= @nickname %>様のマイページ</p>
+<p><%= link_to 'アカウント管理', '/users/edit' %></p>
 
 <%= form_for @user do |f| %> 
     <%= fields_for :requests do |f| %>

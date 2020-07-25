@@ -3,6 +3,9 @@
     <%= f.submit %>
 <% end %> 
 
-<% @requests.each do |requests| %>
-  <%= image_tag requests.image %>
+<% @requests.each do |r| %>
+  <% if r.image.attached? %>
+    <%= image_tag r.image %>
+  <% end %>
 <% end %>
+
