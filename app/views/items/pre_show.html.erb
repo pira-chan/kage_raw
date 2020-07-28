@@ -1,16 +1,9 @@
 <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="load-twitter-share-button" data-size="large" data-text="カゲローラボで見つけた！【<%= @item.title %>】|" data-via="kage_raw_lab" data-hashtags="カゲローラボ" data-related="" data-lang="ja" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
 <!--↑でスクリプトを最初に読み込ませることで、シェボタンが間違いなく表示されるようにする-->
 
-<div class="search-area">
-   
-        <%= form_tag('/items/search', method: :get, class: "lets-search") do %>
-        <!--ここを'/posts/search'にしておくことでページ遷移させて、検索結果を表示させる-->
-        <%= text_field_tag :search, "", class: "search-field", placeholder: "キーワードを入力"%>
-        <%= submit_tag '検索する', :name => nil, class: "search-btn" %>
-        <% end %>      
-</div>
-    
 
+    
+<%= render partial: "search-area"%>
 
 <%= render partial: "tags"%>
 <% if user_signed_in? && current_user.admin? %>

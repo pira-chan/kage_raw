@@ -53,7 +53,7 @@
                       <% if user_signed_in? %>
                           <div class="user-name"><%= current_user.nickname %><br>サマ</div>
                           <div class="check-in">
-                              <%= link_to 'リクエスト', '/users/mypage' %>
+                              <%= link_to 'リクエスト', new_user_request_path(current_user.id) %>
                         　</div>
                           <div class="sign_out">
                               <%= link_to('ログアウト', destroy_user_session_path, :method => :delete) %>

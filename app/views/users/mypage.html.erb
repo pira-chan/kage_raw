@@ -1,19 +1,20 @@
+<!--このページは現在使用中止-->
 <p><%= @nickname %>様のマイページ</p>
 <p><%= link_to 'アカウント管理', '/users/edit' %></p>
-
-<%= form_for @user do |f| %> 
+<p><%= link_to '画像アップロード', new_user_request_path(@user.id) %></p>
+<%= form_with(model: @user, local: true) do |f| %>
     <%= fields_for :requests do |f| %>
-    <%= f.text_field :text %>
-    <%= f.file_field :request_image %>
-    <% end %>
-    <%= f.submit %>
+        <%= f.text_field :name %>
+        <%= f.file_field :image %>
+        <%= f.submit %>
+    <% end %> 
 <% end %> 
 
 <% @user.requests.each do |r| %>
 <%= r.name %>
 <%= r.text %>
-<% if r.request_image.attached? %>
-    <%= image_tag r.request_image %>
+<% if r.image.attached? %>
+    <%= image_tag r.image %>
 <% end %>
 <% end %>
 

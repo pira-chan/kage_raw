@@ -6,4 +6,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
   has_many :requests
   # accepts_nested_attributes_for :requests
+  # has_one_attached :image
 end

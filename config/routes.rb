@@ -4,9 +4,10 @@ Rails.application.routes.draw do
    }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'items#index'
-  resources :requests   #実験用
+  # resources :requests   #実験用
+  # resources :users, :except => :show
   resources :users, :except => :show do
-    resources :request
+    resources :requests
   end
   
   get 'items' => 'items#index'
@@ -29,7 +30,7 @@ Rails.application.routes.draw do
   get 'items/privacy' => 'items#privacy'
   get 'items/whats_kage_request' => 'items#whats_kage_request'
   
-  get 'users/:id' => 'users#mypage'
+  # get 'users/:id' => 'users#mypage'   # 使用中止マイページ
   
   
   

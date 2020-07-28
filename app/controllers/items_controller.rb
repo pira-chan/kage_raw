@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
     
     def index
         @items =  Item.all.order("id DESC").page(params[:page]).per(15)
+        @user = current_user
     end
     
     def new
@@ -86,7 +87,7 @@ class ItemsController < ApplicationController
         params.require(:tags).permit(:adopt_tag)
     end
     
-    def item_params
+    def item_params 
         params.require(:item).permit(:title, :cr_item, :dl_item)
     end
 
