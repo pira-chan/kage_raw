@@ -85,7 +85,7 @@ class RequestsController < ApplicationController
     @request = current_user.requests.build(name: request_params[:name], text: request_params[:text], status: 1)
     @request.image.attach(request_params[:image])
       if @request.save
-        flash[:success] = "リクエストが正常に完了しました。"
+        flash[:success] = "リクエストが正常に完了しました。作成ステータスが変更されるとメールでお知らせ致します。"
         InquiryMailer.request_occured_email.deliver
         @user = current_user
         InquiryMailer.request_accepted_email(@user).deliver
