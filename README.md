@@ -1,7 +1,6 @@
 # 概要
 
-Ruby on Railsの学習を主目的に作成した、シルエットイラスト素材の配布サイトです。運営者目線とユーザー目線を意識して、実用性の高いサービス設計
-を目指しました。  
+Ruby on Railsの学習を主目的に作成した、シルエットイラスト素材の配布サイトです。運営者目線とユーザー目線を意識して、実用性の高いサービス設計を目指しました。  
 素材のリクエスト機能を利用するには、会員登録が必要ですので、お試しには下記のアカウントをお使いください。  
 メールアドレス：test2@test.com  
 パスワード：123456789  
@@ -20,6 +19,7 @@ jQuery 1.12.4
 * スライドショー機能
 * 検索機能
 * タグ投稿機能
+* ページネーション機能
 
 ## ユーザー登録関連
 * 登録機能
@@ -29,6 +29,7 @@ jQuery 1.12.4
 * 管理ユーザー追加機能
 
 ## 素材リクエスト関連
+* リクエスト投稿機能  
 * 画像アップロード機能
 * お知らせメール送信機能
 * 削除機能
@@ -40,23 +41,19 @@ jQuery 1.12.4
 * リクエスト一覧機能
 * リクエスト編集機能
 * ユーザー登録時・タグ投稿時・リクエスト受付時・お問い合わせ受付時のメール通知機能
+* サイトマップ自動送信機能
 
-## その他
-* お問い合わせ機能
-* rspecによる簡易的なテストの導入
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# 使用技術一覧
+* MySQL 5.5.62
+* heroku
+* SendGrid
+* rspec
+* Action Mailer
+* Active Storage 
+* Amazon S3
+* 追加した主なライブラリ
+** jquery-rails
+** kaminari
+** aws-sdk
+** devise
+** rspec-rails
