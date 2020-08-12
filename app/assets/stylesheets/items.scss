@@ -429,11 +429,19 @@ text-align: center;
 
 .select-row {
     width: 80%;
-    height: 100px;
-    margin: 0 auto;
+    margin: 30px auto;
+    text-align: center;
+    display: flex;
+}
+.select-row p {
+    font-size: small;
 }
 
-@media screen and (max-width: 425px){
+.fixed-tag-title {
+    font-size: xx-large;
+}
+
+@media screen and (max-width: 426px){
      .select-row {
     display: none;
     width: auto;
@@ -444,12 +452,13 @@ text-align: center;
 
 
 
+
+
 .select-row li{
     list-style: none;
     float:left;
     margin: 10px 10px
 }
-
 
 // .item-title a{
 //     text-align: center;
@@ -704,7 +713,10 @@ text-align: center;
 }
 
 
-
+.search-area {
+    clear: both;
+    margin: 0px 0px;
+}
 
 
 .search-field {
