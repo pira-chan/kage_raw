@@ -6,7 +6,7 @@
     
 <%= render partial: "search-area" %>
 
-<%= render partial: "tags" %>
+<%= render partial: "fixed-tags" %>
 <% if user_signed_in? && current_user.admin? %>
     <div class="to_admin">
     <%= link_to "管理画面", "/items/#{@selected_item.id}/management", method: :get %>     
