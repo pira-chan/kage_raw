@@ -10,7 +10,7 @@ class InquiryMailer < ApplicationMailer
   def maketag_email(item)
     @item = item
     @url = "https://www.kage-raw.com//items/#{@item.id}/management"
-    mail(:subject => "タグが投稿されました")
+    mail(:subject => "タグが投稿されました。")
   end
 
   def registration_email
