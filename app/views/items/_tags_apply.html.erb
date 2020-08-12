@@ -9,12 +9,6 @@
         <% end %>
         <%= form_for @item, url: "tag_addition" do |f| %>
                 <%= fields_for :tags do |ff| %>
-                <%= ff.text_field :adopt_tag, value: "複数人" %>
-                <%= ff.submit %>
-                <% end %>
-        <% end %>
-        <%= form_for @item, url: "tag_addition" do |f| %>
-                <%= fields_for :tags do |ff| %>
                 <%= ff.text_field :adopt_tag, value: "カップル" %>
                 <%= ff.submit %>
                 <% end %>

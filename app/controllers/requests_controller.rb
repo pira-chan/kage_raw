@@ -1,6 +1,8 @@
 class RequestsController < ApplicationController
   before_action :move_to_login, :only => [:new, :create, :destroy]
-  before_action :move_to_top, :only => [:requests_list, :show]     #管理者画面への侵入をブロック
+  before_action :move_to_top, :only => [:requests_list, :show, :update]     #管理者画面への侵入をブロック
+  helper_method :create_to_save
+  
 
   def requests_list #管理者のリクエスト一覧確認画面
     @requests = Request.includes(:user).order("created_at DESC").page(params[:page]).per(50)
@@ -25,26 +27,16 @@ class RequestsController < ApplicationController
   def new #リクエスト投稿画面
     @user = current_user
     @nickname = current_user.nickname
-    @requests = current_user.requests.order("created_at DESC").page(params[:page]).per(10)
+    @requests = current_user.requests.order("created_at DESC")
     @request = Request.new
   end
+  
+
 
   def create #リクエスト投稿保存処理
     #   @requests = current_user.requests
     if current_user.requests.count == 0 #新規登録したユーザーの初リクエストを保存
-      @request = current_user.requests.build(name: request_params[:name], text: request_params[:text], status: 1)
-      @request.image.attach(request_params[:image])
-      if @request.save
-        flash[:success] = "リクエストが正常に完了しました。"
-        InquiryMailer.request_occured_email.deliver
-        @user = current_user
-        InquiryMailer.request_accepted_email(@user).deliver
-        redirect_to action: "new"
-      else
-        flash[:save_fail] = "リクエストの送信に失敗しました。"
-        @requests = current_user.requests.order("created_at DESC").page(params[:page]).per(10)
-        render action: :new  # redirect_to action: 'new'  リダイレクトではエラーメッセージが表示されない
-      end
+      create_to_save
     elsif current_user.requests.last.status == 1 #前回リクエストが完了していない場合は保存しない
       flash[:status_fail] = "リクエストできるのは１件ずつです。前回リクエストの完了をお待ち下さい。"
       redirect_to action: "new"
@@ -52,19 +44,7 @@ class RequestsController < ApplicationController
       flash[:amount_fail] = "リクエスト出来るのは最大３件です。保存済みリクエストを削除して下さい。"
       redirect_to action: "new"
     else #リクエストを保存する場合
-      @request = current_user.requests.build(name: request_params[:name], text: request_params[:text], status: 1)
-      @request.image.attach(request_params[:image])
-      if @request.save
-        flash[:success] = "リクエストが正常に完了しました。"
-        InquiryMailer.request_occured_email.deliver
-        @user = current_user
-        InquiryMailer.request_accepted_email(@user).deliver
-        redirect_to action: "new"
-      else
-        flash[:save_fail] = "リクエストの送信に失敗しました。"
-        @requests = current_user.requests.order("created_at DESC").page(params[:page]).per(10)
-        render action: :new  #リダイレクトではエラーメッセージが表示されない
-      end
+      create_to_save
     end
   end
 
@@ -100,4 +80,20 @@ class RequestsController < ApplicationController
       redirect_to "/"
     end
   end
+  
+  def create_to_save
+    @request = current_user.requests.build(name: request_params[:name], text: request_params[:text], status: 1)
+    @request.image.attach(request_params[:image])
+      if @request.save
+        flash[:success] = "リクエストが正常に完了しました。"
+        InquiryMailer.request_occured_email.deliver
+        @user = current_user
+        InquiryMailer.request_accepted_email(@user).deliver
+        redirect_to action: "new"
+      else
+        flash[:save_fail] = "リクエストの送信に失敗しました。"
+        @requests = current_user.requests.order("created_at DESC")
+        render action: :new  # redirect_to action: 'new'  リダイレクトではエラーメッセージが表示されない
+      end    
+  end  
 end
