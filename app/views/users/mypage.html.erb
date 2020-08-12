@@ -1,7 +1,7 @@
 <!--このページは現在使用中止-->
 <p><%= @nickname %>様のマイページ</p>
-<p><%= link_to 'アカウント管理', '/users/edit' %></p>
-<p><%= link_to '画像アップロード', new_user_request_path(@user.id) %></p>
+<p><%= link_to "アカウント管理", "/users/edit" %></p>
+<p><%= link_to "画像アップロード", new_user_request_path(@user.id) %></p>
 <%= form_with(model: @user, local: true) do |f| %>
     <%= fields_for :requests do |f| %>
         <%= f.text_field :name %>

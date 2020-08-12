@@ -1,0 +1,12 @@
+
+<div class="requested_image">
+  <%= image_tag @request.image %>
+</div>
+
+<%= form_with model: @request do |f| %>
+  <%= f.label :status, "ステータス" %><br>
+  <%= f.select :status, { '受付中': 1, '作成不可': 2, '作成完了': 3 } %><br>
+  <%= f.label :created_item_id, "素材ID" %><br>
+  <%= f.text_field :created_item_id %><br>
+  <%= f.submit %><br>
+<% end %>

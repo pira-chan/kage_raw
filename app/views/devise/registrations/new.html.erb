@@ -12,12 +12,12 @@
       </div>
     
       <div class="field">
-        <%= f.label :email, "メールアドレス"  %><br />
+        <%= f.label :email, "メールアドレス" %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
       </div>
     
       <div class="field">
-        <%= f.label :password, "パスワード"  %>
+        <%= f.label :password, "パスワード" %>
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> 文字以上)</em>
         <% end %><br />
@@ -36,6 +36,6 @@
     
     
     <div class="to-sign_up">
-      <P>すでに登録済みの方は<%= link_to 'こちら', '/users/sign_in' %></P>
+      <P>すでに登録済みの方は<%= link_to "こちら", "/users/sign_in" %></P>
     </div>
 </div>

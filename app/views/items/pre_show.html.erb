@@ -1,47 +1,50 @@
+
 <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="load-twitter-share-button" data-size="large" data-text="カゲローラボで見つけた！【<%= @item.title %>】|" data-via="kage_raw_lab" data-hashtags="カゲローラボ" data-related="" data-lang="ja" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
 <!--↑でスクリプトを最初に読み込ませることで、シェボタンが間違いなく表示されるようにする-->
 
 
     
-<%= render partial: "search-area"%>
+<%= render partial: "search-area" %>
 
-<%= render partial: "tags"%>
+<%= render partial: "tags" %>
 <% if user_signed_in? && current_user.admin? %>
     <div class="to_admin">
-    <%= link_to "管理画面","/items/#{@item.id}/management", method: :get %>     
+    <%= link_to "管理画面", "/items/#{@selected_item.id}/management", method: :get %>     
     </div>
 <% end %>
 
 <div class="content">    
     
         <div class="dl_item">
-            <%= image_tag @item.cr_item %>
+            <%= image_tag @selected_item.cr_item %>
         </div>
         
         <div class="detail-cover">
 
         <div class="detail">
             <div class="dl_title">
-                <h3><%=@item.title%></h3>
+                <h3><%= @selected_item.title %></h3>
             </div>
            
-            <%= render partial: "10tags"%>
-            
+            <%= render partial: "10tags" %>            
             
             
            
 <div class="maketag-area">
- 　　　　<p>このシルエットのタグを考えて投稿すると、ダウンロード可能！</p>
- 　　　　<div class="down-arrow"><i class="fas fa-angle-double-down"></i></div>
- <%= form_for @item, url:'maketag' , html: {method: 'patch'} do |f| %> 
- <div class="alert-message"><%= flash[:alert] %></div>
-<%= fields_for :suggests do |f| %>
- <%= f.text_field :suggest_tag, :value => "", :placeholder => " ぴったりのタグは.....", :class => "maketag-form" %>
-
-<% end %>
- <%= f.submit '送信', :class => "maketag-btn" %>
- <% end %> 
- </div> 
+    <p>このシルエットのタグを考えて投稿すると、ダウンロード可能！</p>
+    <div class="down-arrow"><i class="fas fa-angle-double-down">
+        </i>
+    </div>
+    <%= form_for @item, url: "maketag" do |f| %> 
+        <div class="alert-message">
+            <%= flash[:alert] %>
+        </div>
+            <%= fields_for :suggests do |ff| %>
+            <%= ff.text_field :suggest_tag, :value => "", :placeholder => " ぴったりのタグは.....", :class => "maketag-form" %>
+            <%= ff.submit "送信", :class => "maketag-btn" %>
+            <% end %>
+    <% end %> 
+</div> 
 
                 
             <!--<div class="dl_info">-->
@@ -57,5 +60,5 @@
         
         </div>
 </div>
-<%= render partial: "items/all_tags_show"%>
-<%= render partial: "items/bottom"%>
+<%= render partial: "items/all_tags_show" %>
+<%= render partial: "items/bottom" %>

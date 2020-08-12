@@ -5,7 +5,7 @@
 }
 
 .topimg {
-    height :50%;
+    height : 50%;
     width: 50%;
 }
 
@@ -60,7 +60,7 @@
     margin: 0px auto;
     display: flex;
     flex-wrap: wrap;  
-    justify-content: flex-start;  
+    justify-content: center;  
 /*    今は繰り返しがないため、要素をただ並べている。上のjustify-content: flex-start; で右から並べているため、左に余白が生まれる模様。justify-content: space-between; を使えば、均等に幅を作れるが、要素の数で表示が変わる。*/
 }
 }
@@ -554,7 +554,7 @@ text-align: center;
 
 
 .before-pic{
-    height :180px;
+    height :160px;
     // padding-right: 35px;
 }
 
@@ -772,7 +772,7 @@ text-align: center;
     width: 550px;
     height: 610px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     float: left;
     margin: 0px 20px;
      border: 6px solid black;
@@ -790,7 +790,7 @@ text-align: center;
     width: auto;
     height: 610px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     float: left;
     margin: 0px 30px;
      border: 6px solid black;
@@ -798,8 +798,7 @@ text-align: center;
     // border: 1px solid ;
     // object-fit: scale-down;
     // 下の２つで真ん中へ表示    
-    display: flex;
-    justify-content: center;
+
     
 }
 }
@@ -976,6 +975,89 @@ text-align: center;
     color :red;
 }
 
+.result-message {
+    color : red;
+    font-size: 20px;
+    width: 200px;
+    margin: 0px auto;
+    // border: 1px solid red;
+}
+.request-row {
+    width: 80%;
+    margin: 10px auto;
+    text-align: center;
+}
+
+.r-histroy-table {
+    width: 80%;
+    margin: 50px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.r-item {
+    width: 220px;
+    height: 220px;
+    padding: 20px 20px;
+    margin: 10px 0px;
+    // text-align: center;
+}
+
+.r-item img{
+    width: 50%;
+    height: 50%;
+    object-fit: scale-down;
+}
+
+.r-status {
+    margin: 0px auto;
+}
+.delete_btn{
+    float: left;
+}
+
+.request_label {
+    font-weight: bold;
+    font-size: 20px;
+}
+.request-limit {
+    text-align: center;
+}
+
+.request-section-name{
+    margin-left: 20px;
+}
+
+.account-setting {
+    text-align: center;
+    width: 300px;
+    margin: 0px auto 0px auto;
+    
+}
+.request-field {
+    margin: 40px auto;
+}
+
+.file_attached_failed {
+    color: red;
+}
+
+.text-ff {
+    margin-top: 10px;
+    height: 200px;
+    width: 400px;
+}
+
+.name-ff {
+    width: 400px;
+    margin-top: 10px;
+}
+
+.image-ff {
+    margin-top: 10px;
+}
+
 #error_explanation {
     color :red;
 }
@@ -1087,6 +1169,31 @@ body {
     text-align: center;
 }
 
+.manegement_kage_data {
+    height: 200px;
+}
+
+.fixed_tag_apply {
+    margin: 10px 10px;
+    padding: 10px 10px;
+    height: auto;
+    display: flex;
+    border: 2px solid black;
+}
+.fixed_tag_apply p {
+    margin: 0px 0px;
+}
+
+.fixed_tag_group {
+    margin: 10px 10px; 
+}
+
+.free_tag_apply {
+    width: 400px;
+    margin: 30px 0px 20px 20px ;
+    
+}
+
 .adopt_tag_list{
     height: 200px;
     width: 90%;
@@ -1102,12 +1209,15 @@ body {
 
 .suggest_tag_list{
     height: auto;
+    border: 2px solid black;
     width: 90%;
     padding: 10px 10px;
     margin: 10px 10px;
     display: flex;
     flex-flow: wrap;
 }
+
+
 
 .devise-wrap {
     margin: 50px auto;
@@ -1124,9 +1234,6 @@ body {
     margin: 20px 0px;
 }
 
-input[type="text"] {
-        width: 200px;
-    }
 
 input[type="email"] {
         width: 300px;
@@ -1211,4 +1318,29 @@ input[type="email"] {
 
 .inquiry-send{
     margin-bottom : 50px;
+}
+
+.not_ready{
+    background-color: #FFABCE;
+    color: white;
+}
+.not_ready a{
+    color: white;
+}
+
+.request-hr {
+    margin: 40px 0px;
+}
+
+.requested_image {
+    border: 1px solid black;
+    width: 600px;
+    height: 600px;
+    margin: 20px 20px;
+}
+
+.requested_image img{
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
 }

@@ -1,0 +1,9 @@
+<% if @request.errors.any? %>
+  <div class="file_attached_failed">
+    <ul>
+      <% @request.errors.full_messages.each do |type_fail| %>
+        <li><%= type_fail %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

@@ -1,0 +1,101 @@
+<div class="fixed_tag_apply">
+    <div class="fixed_tag_group">
+        <p>カゲの対象</p>
+        <%= form_for @item, url: "tag_addition" do |f| %>
+                <%= fields_for :tags do |ff| %>
+                <%= ff.text_field :adopt_tag, value: "動物" %>
+                <%= ff.submit %>
+                <% end %>
+        <% end %>
+        <%= form_for @item, url: "tag_addition" do |f| %>
+                <%= fields_for :tags do |ff| %>
+                <%= ff.text_field :adopt_tag, value: "複数人" %>
+                <%= ff.submit %>
+                <% end %>
+        <% end %>
+        <%= form_for @item, url: "tag_addition" do |f| %>
+                <%= fields_for :tags do |ff| %>
+                <%= ff.text_field :adopt_tag, value: "カップル" %>
+                <%= ff.submit %>
+                <% end %>
+        <% end %>
+    </div>
+    <div class="fixed_tag_group">
+        <p>カゲの印象</p>
+        <%= form_for @item, url: "tag_addition" do |f| %>
+                <%= fields_for :tags do |ff| %>
+                <%= ff.text_field :adopt_tag, value: "案内系" %>
+                <%= ff.submit %>
+                <% end %>
+        <% end %>
+        <%= form_for @item, url: "tag_addition" do |f| %>
+                <%= fields_for :tags do |ff| %>
+                <%= ff.text_field :adopt_tag, value: "ポジティブ系" %>
+                <%= ff.submit %>
+                <% end %>
+        <% end %>
+        <%= form_for @item, url: "tag_addition" do |f| %>
+                <%= fields_for :tags do |ff| %>
+                <%= ff.text_field :adopt_tag, value: "ネガティブ系" %>
+                <%= ff.submit %>
+                <% end %>
+        <% end %>
+    </div>   
+    <div class="fixed_tag_group">
+        <p>ポーズの見栄え</p>
+        <%= form_for @item, url: "tag_addition" do |f| %>
+                <%= fields_for :tags do |ff| %>
+                <%= ff.text_field :adopt_tag, value: "ロマンチック" %>
+                <%= ff.submit %>
+                <% end %>
+        <% end %>
+        <%= form_for @item, url: "tag_addition" do |f| %>
+                <%= fields_for :tags do |ff| %>
+                <%= ff.text_field :adopt_tag, value: "かわいい" %>
+                <%= ff.submit %>
+                <% end %>
+        <% end %>
+        <%= form_for @item, url: "tag_addition" do |f| %>
+                <%= fields_for :tags do |ff| %>
+                <%= ff.text_field :adopt_tag, value: "かっこいい" %>
+                <%= ff.submit %>
+                <% end %>
+        <% end %>
+        <%= form_for @item, url: "tag_addition" do |f| %>
+                <%= fields_for :tags do |ff| %>
+                <%= ff.text_field :adopt_tag, value: "おもしろい" %>
+                <%= ff.submit %>
+                <% end %>
+        <% end %>
+    </div>
+    <div class="fixed_tag_group">
+        <p>カゲの動作</p>
+        <%= form_for @item, url: "tag_addition" do |f| %>
+                <%= fields_for :tags do |ff| %>
+                <%= ff.text_field :adopt_tag, value: "立つ" %>
+                <%= ff.submit %>
+                <% end %>
+        <% end %>
+        <%= form_for @item, url: "tag_addition" do |f| %>
+                <%= fields_for :tags do |ff| %>
+                <%= ff.text_field :adopt_tag, value: "座る" %>
+                <%= ff.submit %>
+                <% end %>
+        <% end %>
+        <%= form_for @item, url: "tag_addition" do |f| %>
+                <%= fields_for :tags do |ff| %>
+                <%= ff.text_field :adopt_tag, value: "寝そべる" %>
+                <%= ff.submit %>
+                <% end %>
+        <% end %>
+    </div>
+</div>
+<h4>フリータグ適用</h4>
+<div class="free_tag_apply">
+    <%= form_for @item, url: "tag_addition" do |f| %>
+            <%= fields_for :tags do |ff| %>
+            <%= ff.text_field :adopt_tag %>
+            <%= ff.submit %>
+            <% end %>
+    <% end %>
+</div>

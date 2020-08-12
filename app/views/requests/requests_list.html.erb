@@ -1,0 +1,40 @@
+<% @requests.each do |r| %>
+    <div class="not_ready">
+        <ul>
+            <% if r.status == 1 %>
+                <li><%= r.id %>　<%= link_to r.name, "/requests/#{r.id}" %>　by <%= r.user.nickname %>　<%= r.created_at.in_time_zone("Tokyo") %>
+                <br>
+                      <% if r.status == 1 %>
+                        <p class="r-status">[受付中]</p>
+                    　<% elsif r.status == 2 %>
+                    　  <p class="r-status">[作成不可]</p>
+                    　<% else %>
+                    　  <p class="r-status">[作成完了]<br><%= link_to "ダウンロード", "/", { class: "r-dl" } %></p>
+                    　<% end %>                    
+                </li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
+<hr>
+<% @requests.each do |r| %>        
+    
+    <div class="requests_list">
+        <ul>
+             <li><%= r.id %>　<%= link_to r.name, "/requests/#{r.id}" %>　by <%= r.user.nickname %>　<%= r.created_at.in_time_zone("Tokyo") %>
+             <br>
+                      <% if r.status == 1 %>
+                        <p class="r-status">[受付中]</p>
+                    　<% elsif r.status == 2 %>
+                    　  <p class="r-status">[作成不可]</p>
+                    　<% else %>
+                    　  <p class="r-status">[作成完了]<br><%= link_to "ダウンロード", "/", { class: "r-dl" } %></p>
+                    　<% end %>                    
+             </li>
+        </ul>
+        <hr>
+    </div>
+<% end %>
+
+<%= paginate @requests %>
+    

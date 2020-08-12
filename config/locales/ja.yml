@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    errors:
+      models:
+        request:
+          attributes:
+            name:
+             blank: "プロジェクト名/仮タイトルの入力は必須です"
+             too_long: "プロジェクト名/仮タイトルは10文字以内です"
+            text:
+             too_long: "リクエスト内容は500文字以内です"

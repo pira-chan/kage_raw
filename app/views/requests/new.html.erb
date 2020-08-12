@@ -1,1 +1,76 @@
-<h1>COMING SOON</h1>
+<h2 class="request-section-name">リクエストを作成する</h2>
+
+ <div class="request-row">
+    
+    
+     <div class="result-message">
+         <%= flash[:status_fail] %><%= flash[:success] %><%= flash[:save_fail] %><%= flash[:delete_success] %><%= flash[:delete_fail] %><%= flash[:amount_fail] %>
+    </div>
+    <% #= render partial: "error_messages" %>
+    <!--↓この下でエラーメッセージを表示させたいが何も出力されない-->
+    <% if @request.errors.any? %>
+      <div class="file_attached_failed">
+          <% @request.errors.full_messages.each do |faf| %>
+            <%= faf %>
+          <% end %>
+      </div>
+    <% end %>
+
+    <%= form_with(url: user_requests_path, method: :post, local: true, multipart: true) do |f| %>
+    
+        <%= fields_for :request do |ff| %>
+            <div class="request-field ">
+                <%= ff.label :name, "プロジェクト名/仮タイトル（必須）", { class: "request_label" } %><br>
+                <%= ff.text_field :name, :class => "name-ff", placeholder: "10文字以内" %>
+            </div>
+            
+            <div class="request-field">
+                <%= ff.label :image, "リクエスト画像（jpeg jpg png 形式のみです）", { class: "request_label" } %><br>
+                <%= ff.file_field :image, :class => "image-ff", accept: "image/jpg,image/jpeg,image/png" %>
+                <p>※リクエストする画像が無い場合は、ファイル添付はせずに、下記にて文章でご要望をご入力下さい。</p>
+            </div>
+            
+            <div class="request-field">
+                <%= ff.label :text, "リクエスト内容", { class: "request_label" } %><br>
+                <%= ff.text_area :text, :class => "text-ff", placeholder: "500文字以内" %>
+            </div>
+            <%= ff.submit "送信" %>
+        <% end %> 
+    <% end %> 
+</div>
+<hr class="request-hr">
+<h2 class="request-section-name"><%= @nickname %>さまのリクエスト一覧</h2>
+
+
+<div class="r-histroy-table">
+    
+    
+    <% @requests.each do |r| %>
+        <div class="r-item">
+          <% if r.image.attached? %>
+            <%= image_tag r.image %><br>
+        　<% else %>
+        　  <%= image_tag "no_image" %><br>
+          <% end %>
+          <span class="r-name"><%= r.name %></span>
+              <% if r.status == 1 %>
+                <p class="r-status">[受付中]</p>
+            　<% elsif r.status == 2 %>
+            　  <p class="r-status">[作成不可]</p>
+            　  <%= link_to "削除", "/users/#{@user.id}/requests/#{r.id}", method: :delete, data: { confirm: "削除しますか？" }, class: "delete_btn" %>
+            　<% else %>
+            　  <p class="r-status">[作成完了]<br><%= link_to "ダウンロード", "/items/#{r.created_item_id}/pre_show", { class: "r-dl" } %></p>
+            　  <%= link_to "削除", "/users/#{@user.id}/requests/#{r.id}", method: :delete, data: { confirm: "削除しますか？" }, class: "delete_btn" %>
+            　<% end %>
+        </div> 
+    <% end %>
+  
+</div>
+<p class="request-limit">保存できるリクエストは3件までです。それ以降は、不要なリクエストをまず削除して下さい。</p>  
+<%= paginate @requests %>
+
+<div class="account-setting">
+    <p><%= link_to "アカウント管理はこちらへ", "/users/edit" %></p>
+</div>
+
+
