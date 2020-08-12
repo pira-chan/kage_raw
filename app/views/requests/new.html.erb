@@ -25,7 +25,7 @@
             </div>
             
             <div class="request-field">
-                <%= ff.label :image, "リクエスト画像（jpeg jpg png 形式のみです）", { class: "request_label" } %><br>
+                <%= ff.label :image, "リクエスト画像（jpeg jpg png 形式および1MB以下）", { class: "request_label" } %><br>
                 <%= ff.file_field :image, :class => "image-ff", accept: "image/jpg,image/jpeg,image/png" %>
                 <p>※リクエストする画像が無い場合は、ファイル添付はせずに、下記にて文章でご要望をご入力下さい。</p>
             </div>
