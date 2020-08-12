@@ -23,6 +23,7 @@ class InquiryMailer < ApplicationMailer
 
   def request_accepted_email(user)
     @user = user
+    @url = "https://www.kage-raw.com/"
     mail(
       subject: "【カゲローラボです！】リクエストを承りました",
       to: @user.email,
@@ -31,6 +32,7 @@ class InquiryMailer < ApplicationMailer
 
   def status_cheanged_email(user)
     @user = user
+    @url = "https://www.kage-raw.com/"
     mail(
       subject: "【カゲローラボです！】ステータスが変更されました",
       to: @user.email,
