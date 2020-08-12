@@ -21,6 +21,8 @@ ja:
               confirmation: "が内容とあっていません。"
             password_confirmation:
               confirmation: "が一致しておりません。"
+            current_password:
+              invalid: "が間違っています。"
     attributes:
       user:
         current_password: "現在のパスワード"

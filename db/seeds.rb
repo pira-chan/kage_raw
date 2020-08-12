@@ -1,7 +1,6 @@
 require "csv"
 
-User.create!(nickname: "管理者",
-             email: "kagerawlab@gmail.com",
-             password: "3717Ibyatfptmp",
-             password_confirmation: "3717Ibyatfptmp",
-             admin: true)
+User.create!(nickname: "テストユーザー",
+             email: "test@test.com",
+             password: "12345678",
+             password_confirmation: "12345678")
