@@ -1,7 +1,7 @@
 <div class="select-row">
   <p><span class="fixed-tag-title">オススメ<br>検索タグ</span><br>(ほぼ全ての素材にいずれかのタグが登録されています)</p>
     <ul> 
-    　<% @fixed_tags.each do |ft| %>
+    　<% $fixed_tags.each do |ft| %>
       <li>
         <%= form_tag("/items/search", method: :get) do %>
         <%= text_field_tag :search, ft, class: "hidden-search-field", placeholder: "キーワードを入力" %>

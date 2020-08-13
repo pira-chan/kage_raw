@@ -2,11 +2,11 @@ class ItemsController < ApplicationController
   before_action :move_to_top, :only => [:new, :create, :destroy, :management, :tag_addition, :data_list, :management]
   # InvalidAuthenticityToken発生抑止
   protect_from_forgery except: :create
+  $fixed_tags = ["動物","カップル","ポジティブ系","ネガティブ系","案内系","ロマンチック","かわいい","かっこいい","おもしろい","立つ","座る","寝そべる",]
 
   def index
     @items = Item.all.order("id DESC").page(params[:page]).per(15)
     @user = current_user
-    @fixed_tags = ["動物","カップル","ポジティブ系","ネガティブ系","案内系","ロマンチック","かわいい","かっこいい","おもしろい","立つ","座る","寝そべる",]
   end
 
   def new # 管理者による新規素材作成画面
@@ -59,7 +59,7 @@ class ItemsController < ApplicationController
 
   def pre_show # ユーザーによるタグ提案画面
     #form_forをビューで有効にするためには、newメソッドを呼び出しておく必要があるため、@selected_itemを定義
-    @selected_item = Item.find(params[:id])   
+    @selected_item = Item.find(params[:id])
     @item = Item.new
   end
 
