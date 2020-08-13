@@ -1,16 +1,12 @@
 <div class="dl_tag">
-    
-    <ul>
-        
-        <% @item.tags.first(10).each do |tag| %>
-
-                <li class="tag">
-                            <%= form_tag("/items/search", method: :get) do %>
-                            <%= text_field_tag :search, tag.adopt_tag, class: "hidden-search-field", placeholder: "キーワードを入力" %>
-                            <%= submit_tag "#" + tag.adopt_tag, :name => nil, class: "tag-search-btn2" %>
-                            <% end %>
-                </li>            
+  <ul>
+    <% @item.tags.first(10).each do |tag| %>
+      <li class="tag">
+        <%= form_tag("/items/search", method: :get) do %>
+        <%= text_field_tag :search, tag.adopt_tag, class: "hidden-search-field", placeholder: "キーワードを入力" %>
+        <%= submit_tag "#" + tag.adopt_tag, :name => nil, class: "tag-search-btn2" %>
         <% end %>
-    
-    </ul>
+      </li>            
+    <% end %>
+  </ul>
 </div>

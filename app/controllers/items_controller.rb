@@ -6,24 +6,47 @@ class ItemsController < ApplicationController
   def index
     @items = Item.all.order("id DESC").page(params[:page]).per(15)
     @user = current_user
+    @fixed_tags = ["動物","カップル","ポジティブ系","ネガティブ系","案内系","ロマンチック","かわいい","かっこいい","おもしろい","立つ","座る","寝そべる",]
   end
 
   def new # 管理者による新規素材作成画面
     @item = Item.new
   end
 
-  def create # 管理者による新規素材作成保存
+  def create # 管理者による新規素材作成保存処理
     Item.create(title: item_params[:title], cr_item: item_params[:cr_item], dl_item: item_params[:dl_item])
     redirect_to "/items/data_list"
   end
   
-  def destroy # 管理者による素材削除
+  def data_list # 管理者による素材一覧画面
+    @items = Item.includes(:tags).order("id DESC").page(params[:page]).per(50)
+  end
+
+  def management # 管理者による素材編集画面
+    # form_forをビューで有効にするためには、newメソッドを呼び出しておく必要があるため、
+    # @item = Item..find(params[:id])ではなく、@selected_itemを定義
+    @selected_item = Item.find(params[:id])
+    @fixed_tags_obj = ["動物","カップル"]
+    @fixed_tags_impre = ["ポジティブ系","ネガティブ系","案内系"]
+    @fixed_tags_looks = ["ロマンチック","かわいい","かっこいい","おもしろい"]
+    @fixed_tags_act = ["立つ","座る","寝そべる"]
+    @item = Item.new
+  end
+
+  def tag_addition # 管理者によるタグの新規登録処理
+    @item = Item.find(params[:id])
+    @item.tags.build(adopt_tag: tag_params[:adopt_tag], item_title: @item.title)
+    @item.save
+    redirect_to "/items/#{@item.id}/management"
+  end
+  
+  def destroy # 管理者による素材削除処理
     @item = Item.find(params[:id])
     @item.destroy
     redirect_to action: "data_list"
   end
   
-  def update # 管理者による素材編集
+  def update # 管理者による素材編集処理
     @selected_item = Item.find(params[:id])
     @selected_item.update(title: item_params[:title], cr_item: item_params[:cr_item], dl_item: item_params[:dl_item])
     redirect_to action: "management"
@@ -31,18 +54,16 @@ class ItemsController < ApplicationController
 
   def search
     @searched_items = Item.search(params[:search]).order("items.created_at DESC").page(params[:page]).per(25)
-    if @searched_items.blank?
-      redirect_to "/items/not_found"
-    end
+    redirect_to "/items/not_found" if @searched_items.blank?
   end
 
-  def pre_show # ユーザーのタグ提案画面
+  def pre_show # ユーザーによるタグ提案画面
     #form_forをビューで有効にするためには、newメソッドを呼び出しておく必要があるため、@selected_itemを定義
     @selected_item = Item.find(params[:id])   
     @item = Item.new
   end
 
-  def maketag # ユーザーのタグ提案保存
+  def maketag # ユーザーによるタグ提案保存処理
     @item = Item.find(params[:id])
     @item.suggests.build(suggest_tag: maketag_params[:suggest_tag], item_title: @item.title)
     if @item.save
@@ -64,23 +85,6 @@ class ItemsController < ApplicationController
     render :download, layout: false
   end
 
-  def data_list
-    @items = Item.includes(:tags).order("id DESC").page(params[:page]).per(50)
-  end
-
-  def management
-    #form_forをビューで有効にするためには、newメソッドを呼び出しておく必要があるため、@selected_itemを定義
-    @selected_item = Item.find(params[:id])   
-    @item = Item.new
-  end
-
-  def tag_addition # タグの新規登録メソッド
-    @item = Item.find(params[:id])
-    @item.tags.build(adopt_tag: tag_params[:adopt_tag], item_title: @item.title)
-    @item.save
-    redirect_to "/items/#{@item.id}/management"
-  end
-  
   private
 
   def maketag_params
@@ -96,9 +100,6 @@ class ItemsController < ApplicationController
   end
 
   def move_to_top
-    if user_signed_in? and current_user.admin?
-    else
-      redirect_to "/"
-    end
+    redirect_to "/" unless user_signed_in? and current_user.admin?
   end
 end

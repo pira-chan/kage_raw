@@ -20,7 +20,7 @@
     
         <%= fields_for :request do |ff| %>
             <div class="request-field ">
-                <%= ff.label :name, "プロジェクト名/仮タイトル（必須）", { class: "request_label" } %><br>
+                <%= ff.label :name, "リクエスト名（必須）", { class: "request_label" } %><br>
                 <%= ff.text_field :name, :class => "name-ff", placeholder: "10文字以内" %>
             </div>
             
@@ -31,10 +31,20 @@
             </div>
             
             <div class="request-field">
-                <%= ff.label :text, "リクエスト内容", { class: "request_label" } %><br>
-                <%= ff.text_area :text, :class => "text-ff", placeholder: "500文字以内" %>
+                <%= ff.label :text, "リクエスト内容（500文字以内）", { class: "request_label" } %><br>
+                <%= ff.text_area :text, :class => "text-ff", placeholder: "「こんなカゲが欲しい」「こんなポーズの男性が欲しい」「画像の補足」..." %>
             </div>
-            <%= ff.submit "送信" %>
+            <div class="kage-request">
+                    <ul>
+                        <li>制作期間は約１週間となります。完成後は、カゲローラボの新規素材としてアップされます。</li>
+                        <li>リクエスト完了後にリクエストされたユーザー様へメール連絡いたします。その後、制作の完了または不可が決まった時点で再度ご連絡差し上げます。</li>
+                        <li>リクエストに対しては、まずもってお応えできるように取り組みますが、必ず制作出来るわけではありません。不可と判断された場合、その旨をメールでご連絡いたします。また、制作できた場合においても、加工の都合等により、意図された素材と異なる場合がございます。</li>
+                        <li>制作が困難である理由以外に、公序良俗に反するような画像をアップロードされた場合なども制作は不可となります。</li>
+                        <li>アップされる画像は、出来る限り対象以外が写り込んでいないものが好ましいです。</li>
+                        <li>画像ではなく、文章でご要望をいただく方が制作上都合の良いケースがあります。画像アップで、作成不可となった場合はご検討下さい。</li>
+                    </ul>
+            </div>            
+            <%= ff.submit "上記に同意して送信" %>
         <% end %> 
     <% end %> 
 </div>

@@ -1,21 +1,17 @@
 <%= form_for @item do |f| %>
-　<div class="field">
-    　<%= f.label :title, "タイトル" %>
-      <%= f.text_field :title %>
-  <end>
-  
   <div class="field">
-      <%= f.label :cr_item, "ＣＲアドレス" %>
-      <%= f.text_area :cr_item %>
-  <end>
-  
+    <%= f.label :title, "タイトル" %>
+    <%= f.text_field :title %>
+  </div>
   <div class="field">
-      <%= f.label :dl_item, "ＤＬアドレス" %>
-      <%= f.text_area :dl_item %>
-  <end>
-      
+    <%= f.label :cr_item, "CEアドレス" %>
+    <%= f.text_area :cr_item %>
+  </div>
   <div class="field">
-     <%= f.submit "保存" %>
-  <end>      
-
+    <%= f.label :dl_item, "DLアドレス" %>
+    <%= f.text_area :dl_item %>
+  </div>
+  <div class="field">
+    <%= f.submit "保存" %>
+  </div>      
 <% end %>

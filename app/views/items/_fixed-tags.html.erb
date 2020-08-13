@@ -1,96 +1,13 @@
 <div class="select-row">
-    <p><span class="fixed-tag-title">オススメ<br>検索タグ</span><br>(ほぼ全ての素材にいずれかのタグが登録されています)</p>
-    
-    
-            <ul>
-                
-                
-                <li>
-                    <%= form_tag("/items/search", method: :get) do %>
-                    <%= text_field_tag :search, "動物", class: "hidden-search-field", placeholder: "キーワードを入力" %>
-                    <%= submit_tag "#動物", :name => nil, class: "tag-search-btn" %>
-                     <% end %>   
-                </li>
-                
-                <li>
-                    <%= form_tag("/items/search", method: :get) do %>
-                    <%= text_field_tag :search, "カップル", class: "hidden-search-field", placeholder: "キーワードを入力" %>
-                    <%= submit_tag "#カップル", :name => nil, class: "tag-search-btn" %>
-                     <% end %>   
-                </li>                
-                
-                <li>
-                    <%= form_tag("/items/search", method: :get) do %>
-                    <%= text_field_tag :search, "ポジティブ系", class: "hidden-search-field", placeholder: "キーワードを入力" %>
-                    <%= submit_tag "#ポジティブ系", :name => nil, class: "tag-search-btn" %>
-                     <% end %>   
-                </li>
-                
-                <li>
-                    <%= form_tag("/items/search", method: :get) do %>
-                    <%= text_field_tag :search, "ネガティブ系", class: "hidden-search-field", placeholder: "キーワードを入力" %>
-                    <%= submit_tag "＃ネガティブ系", :name => nil, class: "tag-search-btn" %>
-                     <% end %>   
-                </li> 
-                
-                
-                <li>
-                    <%= form_tag("/items/search", method: :get) do %>
-                    <%= text_field_tag :search, "案内系", class: "hidden-search-field", placeholder: "キーワードを入力" %>
-                    <%= submit_tag "#案内系", :name => nil, class: "tag-search-btn" %>
-                     <% end %>   
-                </li>
-                
-                <li>
-                    <%= form_tag("/items/search", method: :get) do %>
-                    <%= text_field_tag :search, "ロマンチック", class: "hidden-search-field", placeholder: "キーワードを入力" %>
-                    <%= submit_tag "#ロマンチック", :name => nil, class: "tag-search-btn" %>
-                     <% end %>   
-                </li>                 
-                
-                <li>
-                    <%= form_tag("/items/search", method: :get) do %>
-                    <%= text_field_tag :search, "かわいい", class: "hidden-search-field", placeholder: "キーワードを入力" %>
-                    <%= submit_tag "#かわいい", :name => nil, class: "tag-search-btn" %>
-                     <% end %>   
-                </li>
-                
-                <li>
-                    <%= form_tag("/items/search", method: :get) do %>
-                    <%= text_field_tag :search, "かっこいい", class: "hidden-search-field", placeholder: "キーワードを入力" %>
-                    <%= submit_tag "#かっこいい", :name => nil, class: "tag-search-btn" %>
-                     <% end %>   
-                </li>                
-                
-                <li>
-                    <%= form_tag("/items/search", method: :get) do %>
-                    <%= text_field_tag :search, "おもしろい", class: "hidden-search-field", placeholder: "キーワードを入力" %>
-                    <%= submit_tag "#おもしろい", :name => nil, class: "tag-search-btn" %>
-                     <% end %>   
-                </li>
-                
-                <li>
-                    <%= form_tag("/items/search", method: :get) do %>
-                    <%= text_field_tag :search, "立つ", class: "hidden-search-field", placeholder: "キーワードを入力" %>
-                    <%= submit_tag "#立つ", :name => nil, class: "tag-search-btn" %>
-                     <% end %>   
-                </li> 
-                
-                
-                <li>
-                    <%= form_tag("/items/search", method: :get) do %>
-                    <%= text_field_tag :search, "座る", class: "hidden-search-field", placeholder: "キーワードを入力" %>
-                    <%= submit_tag "#座る", :name => nil, class: "tag-search-btn" %>
-                     <% end %>   
-                </li>
-                
-                <li>
-                    <%= form_tag("/items/search", method: :get) do %>
-                    <%= text_field_tag :search, "寝そべる", class: "hidden-search-field", placeholder: "キーワードを入力" %>
-                    <%= submit_tag "#寝そべる", :name => nil, class: "tag-search-btn" %>
-                     <% end %>   
-                </li>                                 
-                
-            </ul>            
-        
+  <p><span class="fixed-tag-title">オススメ<br>検索タグ</span><br>(ほぼ全ての素材にいずれかのタグが登録されています)</p>
+    <ul> 
+    　<% @fixed_tags.each do |ft| %>
+      <li>
+        <%= form_tag("/items/search", method: :get) do %>
+        <%= text_field_tag :search, ft, class: "hidden-search-field", placeholder: "キーワードを入力" %>
+        <%= submit_tag "#"+ft, :name => nil, class: "tag-search-btn" %>
+        <% end %>   
+      </li>
+      <% end %>
+    </ul>            
 </div>

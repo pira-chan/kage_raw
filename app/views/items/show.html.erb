@@ -1,48 +1,32 @@
+<!--スクリプトを最初に読み込ませることで、シェボタンが間違いなく表示されるようにする-->
 <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="load-twitter-share-button" data-size="large" data-text="カゲローラボで見つけた！【<%= @item.title %>】|" data-via="kage_raw_lab" data-hashtags="カゲローラボ" data-related="" data-lang="ja" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
-<!--↑でスクリプトを最初に読み込ませることで、シェボタンが間違いなく表示されるようにする-->
 <%= render partial: "search-area" %>
-    
-
-
 <%= render partial: "fixed-tags" %>
-
-
-
 <div class="content">    
-    
-        <div class="dl_item">
-            <%= image_tag @item.cr_item %>
-        </div>
-        
-        <div class="detail-cover">
-
-        <div class="detail">
-            <div class="dl_title">
-                <h3><%= @item.title %></h3>
-            </div>
-<%= render partial: "10tags" %>
-            　　<!--<div class="maketag-area">-->
-              <!--  </div> -->
-
-            <div class="dl_button">
-                <!--<p><a href="/items/#{@item.id}/show">ダウンロード</a></p-->
-                <p><%= link_to "ダウンロード", "/items/#{@item.id}/download", target: :_blank, method: :get %></p>
-            </div>
-            <div class="dl_info">
-                <p>クリックで利用規約の同意とみなします。</p>
-                <p>ファイル形式はPNGです。</p>
-                <p>新しいタブでダウンロード画像を開きます。</p>
-                <p>新規タブでは、右クリックで画像をダウンロードしてください。</p>
-            </div>
-            
-            <div class="share">
-                <h3>気に入ったシルエットは、ツイートして頂けると嬉しいです！</h3>
-                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="カゲローラボで見つけた！【<%= @item.title %>】|" data-via="kage_raw_lab" data-hashtags="カゲローラボ" data-related="" data-lang="ja" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>        
-            </div>
-                
-            </div>
-        
-        </div>
+  <div class="dl_item">
+  <%= image_tag @item.cr_item %>
+  </div>
+  <div class="detail-cover">
+    <div class="detail">
+      <div class="dl_title">
+        <h3><%= @item.title %></h3>
+      </div>
+      <%= render partial: "10tags" %>
+      <div class="dl_button">
+        <p><%= link_to "ダウンロード", "/items/#{@item.id}/download", target: :_blank, method: :get %></p>
+      </div>
+      <div class="dl_info">
+        <p>クリックで利用規約の同意とみなします。</p>
+        <p>ファイル形式はPNGです。</p>
+        <p>新しいタブでダウンロード画像を開きます。</p>
+        <p>新規タブでは、右クリックで画像をダウンロードしてください。</p>
+      </div>
+      <div class="share">
+        <h3>気に入ったシルエットは、ツイートして頂けると嬉しいです！</h3>
+        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="カゲローラボで見つけた！【<%= @item.title %>】|" data-via="kage_raw_lab" data-hashtags="カゲローラボ" data-related="" data-lang="ja" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>        
+      </div>
+    </div>
+  </div>
 </div>
 <%= render partial: "items/bottom" %>
 

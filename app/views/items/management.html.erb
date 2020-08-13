@@ -1,57 +1,50 @@
 <div class="manegement_kage_data">
-    <%= @selected_item.title %>
-    <div class="data_list_image">
+  <%= @selected_item.title %>
+  <div class="data_list_image">
     <%= image_tag(@selected_item.dl_item) %>
-    </div>
-    <%= link_to "showへ", "/items/#{@selected_item.id}/pre_show", method: :get %>
+  </div>
+  <%= link_to "showへ", "/items/#{@selected_item.id}/pre_show", method: :get %>
 </div>
 <h4>固定タグ一覧</h4>
-    <%= render partial: "tags_apply" %>
-
+<%= render partial: "tags_apply" %>
 <h4>適用タグ一覧<br/></h4>
-    <div class="adopt_tag_list">
-      <% @selected_item.tags.each do |tag| %>
-        <div>
-            <p>
-                  [<%= link_to tag.adopt_tag, "/tags/#{tag.id}", method: :delete, data: { confirm: "削除しますか？" } %>
-                  <%= tag.id %>]&nbsp;&nbsp;
-                  
-            </p>
-        </div>
-      <% end %>
+<div class="adopt_tag_list">
+  <% @selected_item.tags.each do |tag| %>
+    <div>
+    <p>
+      [<%= link_to tag.adopt_tag, "/tags/#{tag.id}", method: :delete, data: { confirm: "削除しますか？" } %>
+      <%= tag.id %>]&nbsp;&nbsp;
+    </p>
     </div>
-    
-    <h4>提案タグ一覧</h4>
-     <div class="suggest_tag_list">
-     <% @selected_item.suggests.each do |suggests| %>
-       <div>
-         <p>#<%= suggests.suggest_tag %>　</p>
-       </div>
-     <% end %>
+  <% end %>
+</div>
+<h4>提案タグ一覧</h4>
+<div class="suggest_tag_list">
+  <% @selected_item.suggests.each do |suggests| %>
+    <div>
+      <p>#<%= suggests.suggest_tag %>　</p>
     </div>
+  <% end %>
+</div>
 <h4>素材情報編集</h4>
 <%= form_for @selected_item do |f| %>
-　<div class="field">
-    　<%= f.label :title, "タイトル" %>
-      <%= f.text_field :title %>
-  <end>
-  
   <div class="field">
-      <%= f.label :cr_item, "ＣＲアドレス" %>
-      <%= f.text_area :cr_item %>
-  <end>
-  
+    <%= f.label :title, "タイトル" %>
+    <%= f.text_field :title %>
+  </div>
   <div class="field">
-      <%= f.label :dl_item, "ＤＬアドレス" %>
-      <%= f.text_area :dl_item %>
-  <end>
-      
+    <%= f.label :cr_item, "CRアドレス" %>
+    <%= f.text_area :cr_item %>
+  </div>
   <div class="field">
-     <%= f.submit %>
-  <end>      
-
+    <%= f.label :dl_item, "DLアドレス" %>
+    <%= f.text_area :dl_item %>
+  </div>
+  <div class="field">
+    <%= f.submit %>
+  </div>      
 <% end %>
-<p><%= link_to "削除", "/items/#{@selected_item.id}", method: :delete, data: { confirm: "削除しますか？" }, class: "delete_btn" %></p>
+<h3><%= link_to "削除", "/items/#{@selected_item.id}", method: :delete, data: { confirm: "削除しますか？" }, class: "delete_btn" %></h3>
     
     
 

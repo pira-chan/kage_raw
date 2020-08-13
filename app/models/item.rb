@@ -8,8 +8,4 @@ class Item < ApplicationRecord
     Item.includes(:tags).where(["title LIKE? OR adopt_tag LIKE?", "%#{search}%", "%#{search}%"]).references(:tags)
   end
 
-  # def to_param
-  #   return self.dl_id
-  # end
-
 end

@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   get "items/whats_kage_request" => "items#whats_kage_request"
   resources :items, only: [:show, :update, :index, :create, :destroy, :new]
 
-  get "inquiries" => "inquiries#index"              # お問い合わせ入力画面
+  get "inquiries" => "inquiries#new"              # お問い合わせ入力画面
   post "inquiries/confirm" => "inquiries#confirm"   # お問い合わせ確認画面
   post "inquiries/thanks" => "inquiries#thanks"    # お問い合わせ送信完了画面
 

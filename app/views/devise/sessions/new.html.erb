@@ -1,45 +1,39 @@
 <div class="devise-wrap">
-    <h2>ログイン</h2>
-    
-    <% if flash[:notice] %>
-      <div class="alert-message">
-        <%= flash[:notice] %>
-      </div>
-    <% end %>
-    <% if flash[:alert] %>
-      <div class="alert-message">
-        <%= flash[:alert] %>
-      </div>
-    <% end %>
-    
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
-      <div class="field">
-        <%= f.label :email, "メールアドレス" %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-      </div>
-    
-      <div class="field">
-        <%= f.label :password, "パスワード" %><br />
-        <%= f.password_field :password, autocomplete: "current-password" %>
-      </div>
-    
-      <% if devise_mapping.rememberable? %>
-        <div class="field">
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me, "ログインを記録する" %>
-        </div>
-      <% end %>
-    
-      <div class="actions">
-        <%= f.submit "ログイン" %>
-      </div>
-    <% end %>
-    
-    <% -if devise_mapping.recoverable? && controller_name != "passwords" && controller_name != "registrations" %>
-      <br /><%= link_to "パスワードをお忘れの場合", new_password_path(resource_name) %>
-    <% end %>
-    <div class="to-sign_up">
-      <P>会員登録は<%= link_to "こちら", "/users/sign_up" %></P>
+  <h2>ログイン</h2>
+  <% if flash[:notice] %>
+    <div class="alert-message">
+      <%= flash[:notice] %>
     </div>
+  <% end %>
+  <% if flash[:alert] %>
+    <div class="alert-message">
+      <%= flash[:alert] %>
+    </div>
+  <% end %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="field">
+      <%= f.label :email, "メールアドレス" %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+    <div class="field">
+      <%= f.label :password, "パスワード" %><br />
+      <%= f.password_field :password, autocomplete: "current-password" %>
+    </div>
+    <% if devise_mapping.rememberable? %>
+      <div class="field">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me, "ログインを記録する" %>
+      </div>
+    <% end %>
+    <div class="actions">
+      <%= f.submit "ログイン" %>
+    </div>
+  <% end %>
+  <% -if devise_mapping.recoverable? && controller_name != "passwords" && controller_name != "registrations" %>
+    <br /><%= link_to "パスワードをお忘れの場合", new_password_path(resource_name) %>
+  <% end %>
+  <div class="to-sign_up">
+    <P>会員登録は<%= link_to "こちら", "/users/sign_up" %></P>
+  </div>
 </div>

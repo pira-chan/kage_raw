@@ -1,102 +1,76 @@
 <!DOCTYPE html>
 <html>
-  <head>
-      <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-152377605-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'UA-152377605-1');
-    </script>
-    <script data-ad-client="ca-pub-9515764595236797" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
-    <title>カゲローラボ　背景のないシルエットイラスト</title>
-    <meta name="description" content="KAGE-Raw Lab. は無料・登録不要で使えるシルエット専門フリーイラストサイトです！全てPNF形式で、背景はありません。ＤＬしたら、上から挿入するだけ！" >
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= favicon_link_tag("https://kage-raw.s3-ap-northeast-1.amazonaws.com/favicon.ico") %>
-    <!--ファビコンの設定はよくわからず。。。どうしてもエラーが発生。アセットに存在しないという。。よってＳ３から表示-->
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-    <%= stylesheet_link_tag "application", media: "all", 'data-turbolinks-track': "reload" %>
-    <!--<%= javascript_include_tag "application", "data-turbolinks-track" => true %>-->
-    <!--上のだとトップページ遷移時にばぐる-->
-    <!--<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>-->
-    <link rel="stylesheet" type="text/css" href="slick/slick.scss"/>
-    <link rel="stylesheet" type="text/css" href="slick/slick-theme.scss"/>
-    <%= javascript_include_tag "application", 'data-turbolinks-track': "reload" %>
-
-    
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Allerta+Stencil" />
-    <meta name="google-site-verification" content="SPE-3USsn0ANVo8iuvs5a0FhRLs6lbIFQZFP2pfRmTQ" />
-  </head>
-
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-152377605-1"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-152377605-1');
+  </script>
+  <script data-ad-client="ca-pub-9515764595236797" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <title>カゲローラボ　背景のないシルエットイラスト</title>
+  <meta name="description" content="KAGE-Raw Lab. は無料・登録不要で使えるシルエット専門フリーイラストサイトです！全てPNF形式で、背景はありません。ＤＬしたら、上から挿入するだけ！" >
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= favicon_link_tag("https://kage-raw.s3-ap-northeast-1.amazonaws.com/favicon.ico") %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+  <%= stylesheet_link_tag "application", media: "all", 'data-turbolinks-track': "reload" %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <link rel="stylesheet" type="text/css" href="slick/slick.scss"/>
+  <link rel="stylesheet" type="text/css" href="slick/slick-theme.scss"/>
+  <%= javascript_include_tag "application", 'data-turbolinks-track': "reload" %>
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Allerta+Stencil" />
+  <meta name="google-site-verification" content="SPE-3USsn0ANVo8iuvs5a0FhRLs6lbIFQZFP2pfRmTQ" />
+</head>
 <body>
-    
-    
-   
 <header>
-  
-              
-              <div class="title-box">
-                
-                <h1><%= link_to "KAGE-Raw Lab.", "/" %></h1>
-                
-                
-            
-              <h5>背景の無いシルエットイラスト</h5>
-              </div>
-                  <div class="check_in_menu">
-                      <% if user_signed_in? %>
-                          <div class="user-name"><%= current_user.nickname %><br>サマ</div>
-                          <div class="check-in">
-                              <%= link_to "リクエスト", new_user_request_path(current_user.id) %>
-                        　</div>
-                          <div class="sign_out">
-                              <%= link_to("ログアウト", destroy_user_session_path, :method => :delete) %>
-                          </div>
-                          <% if current_user.admin? %>
-                              <div class="check-in"><%= link_to "データリスト", "/items/data_list" %></div>
-                              <div class="check-in"><%= link_to "リクエス管理", "/requests/requests_list" %></div>
-                          <% end %>
-                    　<% else %>
-                          <div class="check-in"><%= link_to "ログイン", "/users/sign_in" %></div>
-                          <div class="check-in"><%= link_to "会員登録", "/users/sign_up" %></div>
-                          
-                      <% end %>
-                  </div>
-
-</header>
-
-    <%= yield %>
-    
-<footer>
-
+  <div class="title-box">
     <h1><%= link_to "KAGE-Raw Lab.", "/" %></h1>
-    
-    <!--<div class="tgif"><%#= link_to image_tag("tgif-logo"), "https://note.com/tgif_learning", target: :_blank %></div>-->
-    
-    <div class="about">
-        <ul>
-            <li><%= link_to "利用規約", "/items/terms_conditions" %></li>
-            <li><%= link_to "プライバシーポリシー", "/items/privacy" %></li>
-            <li><%= link_to "お問い合わせ", "/inquiries" %></li>
-            <li><a href="https://twitter.com/kage_raw_lab?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow me!</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></li>
-        </ul>
+    <h5>背景の無いシルエットイラスト</h5>
+  </div>
+  <div class="check_in_menu">
+    <% if user_signed_in? %>
+    <div class="user-name">
+      <%= current_user.nickname %><br>サマ
     </div>
-    
-        
-    
+    <div class="check-in">
+      <%= link_to "リクエスト", new_user_request_path(current_user.id) %>
+    </div>
+    <div class="sign_out">
+      <%= link_to("ログアウト", destroy_user_session_path, :method => :delete) %>
+    </div>
+    <% if current_user.admin? %>
+      <div class="check-in">
+        <%= link_to "データリスト", "/items/data_list" %>
+      </div>
+      <div class="check-in">
+        <%= link_to "リクエス管理", "/requests/requests_list" %>
+      </div>
+    <% end %>
+    <% else %>
+      <div class="check-in">
+        <%= link_to "ログイン", "/users/sign_in" %>
+      </div>
+      <div class="check-in">
+        <%= link_to "会員登録", "/users/sign_up" %>
+      </div>
+    <% end %>
+  </div>
+</header>
+<%= yield %>
+<footer>
+  <h1><%= link_to "KAGE-Raw Lab.", "/" %></h1>
+  <div class="about">
+    <ul>
+      <li><%= link_to "利用規約", "/items/terms_conditions" %></li>
+      <li><%= link_to "プライバシーポリシー", "/items/privacy" %></li>
+      <li><%= link_to "お問い合わせ", "/inquiries" %></li>
+      <li><a href="https://twitter.com/kage_raw_lab?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow me!</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></li>
+    </ul>
+  </div>
 </footer>
 </body>
 </html>
 
-<!--リファクタリングルール-->
-<!--・インデントはスペース２個-->
-<!--・コメントは必要であれば、追加しよう。位置は該当箇所の真上または真横-->
-<!--  改行なら-->
-  <!--# The path used after sending reset password instructions-->
-<!--  文尾付け足しなら、-->

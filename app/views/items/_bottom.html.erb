@@ -1,14 +1,17 @@
 <hr class="request-hr">
-<div class="plz-request"><h2>良いカゲが見つかりませんか？<br>会員登録をして、カゲをリクエストしよう！</h2></div>
-<div class="kage-request"><%= image_tag "kage-request" %>
-    <p><%= link_to "リクエスト機能とは？", "/items/whats_kage_request" %></p>
+<div class="plz-request">
+  <h2>良いカゲが見つかりませんか？<br>会員登録をして、カゲをリクエストしよう！</h2>
+</div>
+<div class="kage-request">
+  <%= image_tag "kage-request" %>
+  <p><%= link_to "リクエスト機能とは？", "/items/whats_kage_request" %></p>
 </div>
 <% if user_signed_in? %>
-    <div class="registration-btn">
-        <%= link_to "リクエスト", new_user_request_path(current_user.id) %>
-    </div>
+  <div class="registration-btn">
+    <%= link_to "リクエスト", new_user_request_path(current_user.id) %>
+  </div>
 <% else %>
-    <div class="registration-btn">
-        <a href="/users/sign_up">会員登録</a>
-    </div>
+  <div class="registration-btn">
+    <a href="/users/sign_up">会員登録</a>
+  </div>
 <% end %>

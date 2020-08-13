@@ -1,20 +1,13 @@
 <%= render partial: "search-area" %>      
-
 <%= render partial: "fixed-tags" %>      
-
-
-
-                <div class="items-list">
-                    
-                
-                
-                <% @searched_items.each do |item| %>
-                    <div class="item">
-                        <%= link_to image_tag(item.cr_item), "/items/#{item.id}/pre_show" %>
-                         <%= link_to item.title, "/items/#{item.id}/", method: :get %>
-                    </div>
-                    <% end %>
-                </div>
-                <%= render partial: "bottom" %>
-                <%= paginate @searched_items %>
+<div class="items-list">
+  <% @searched_items.each do |item| %>
+    <div class="item">
+      <%= link_to image_tag(item.cr_item), "/items/#{item.id}/pre_show" %>
+      <%= link_to item.title, "/items/#{item.id}/", method: :get %>
+    </div>
+  <% end %>
+</div>
+<%= render partial: "bottom" %>
+<%= paginate @searched_items %>
 

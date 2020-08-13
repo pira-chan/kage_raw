@@ -1,7 +1,6 @@
-  <div class="inquiry-header">
-    <h1>お問い合わせ</h1>
-  </div>
- 
+<div class="inquiry-header">
+  <h1>お問い合わせ</h1>
+</div>
 <%= form_for @inquiry, :url => inquiries_thanks_path do |f| %>
   <table class="table">
     <tr>
@@ -26,8 +25,7 @@
       </td>
     </tr>
   </table>
-  
-  <div class="inquiry-send">
+<div class="inquiry-send">
   <%= f.submit "送信", :class => "inquiry-send" %>
-  </div>
+</div>
 <% end %>
