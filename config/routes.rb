@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {
                        :registrations => "users/registrations",
                      }
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
   root "items#index"
 
   resources :users, :except => :show do
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get "items/search" => "items#search"
   get "items/:id/management" => "items#management"
   get "items/:id/pre_show" => "items#pre_show"
-  post "items/:id/maketag" => "items#maketag"   #ユーザーＤＬ前タグ提案
+  post "items/:id/maketag" => "items#maketag"   #ユーザーDL前タグ提案
   get "items/:id/download" => "items#download"
   get "items/not_found" => "items#not_found"
   get "items/terms_conditions" => "items#terms_conditions"
@@ -26,12 +26,9 @@ Rails.application.routes.draw do
   get "items/whats_kage_request" => "items#whats_kage_request"
   resources :items, only: [:show, :update, :index, :create, :destroy, :new]
 
-  get "inquiries" => "inquiries#new"              # お問い合わせ入力画面
-  post "inquiries/confirm" => "inquiries#confirm"   # お問い合わせ確認画面
-  post "inquiries/thanks" => "inquiries#thanks"    # お問い合わせ送信完了画面
+  get "inquiries" => "inquiries#new"
+  post "inquiries/confirm" => "inquiries#confirm"
+  post "inquiries/thanks" => "inquiries#thanks"
 
-  get "/sitemap" => redirect("https://s3-ap-northeast-1.amazonaws.com/kage-raw/sitemaps/sitemap.xml.gz")  # サイトマップをＳ３に
-  
-
-
+  get "/sitemap" => redirect("https://s3-ap-northeast-1.amazonaws.com/kage-raw/sitemaps/sitemap.xml.gz")  # サイトマップをS3に
 end
