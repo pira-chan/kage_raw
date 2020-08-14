@@ -1,5 +1,5 @@
 <div class="all_tags_show">
-  <% @item.tags.each do |tag| %>
+  <% @selected_item.tags.each do |tag| %>
     <ul>
       <li class="tag">
         <%= form_tag("/items/search", method: :get) do %>

@@ -76,7 +76,8 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
+    # pre_showの変数を継承
+    @selected_item = Item.find(params[:id])
   end
 
   def download
