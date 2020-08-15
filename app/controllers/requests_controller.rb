@@ -90,6 +90,8 @@ class RequestsController < ApplicationController
       else
         flash[:save_fail] = "リクエストの送信に失敗しました。"
         @requests = current_user.requests.order("created_at DESC")
+        @user = current_user
+        @nickname = current_user.nickname
         render action: :new
       end    
   end  
