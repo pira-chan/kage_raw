@@ -5,9 +5,9 @@
   </div>
   <% if @request.errors.any? %>
     <div class="file_attached_failed">
-    <% @request.errors.full_messages.each do |faf| %>
-    <%= faf %>
-    <% end %>
+      <% @request.errors.full_messages.each do |faf| %>
+        <%= faf %>
+      <% end %>
     </div>
   <% end %>
   <%= form_with(url: user_requests_path, method: :post, local: true, multipart: true) do |f| %>
