@@ -8,8 +8,8 @@ class InquiryMailer < ApplicationMailer
   end
 
   def maketag_email(item)
-    @item = item
-    @url = "https://www.kage-raw.com//items/#{@item.id}/management"
+    @selected_item = item
+    @url = "https://www.kage-raw.com//items/#{@selected_item.id}/management"
     mail(:subject => "タグが投稿されました。")
   end
 

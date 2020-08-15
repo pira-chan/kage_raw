@@ -32,17 +32,17 @@ class ItemsController < ApplicationController
     @fixed_tags_act = ["立つ","座る","寝そべる"]
     @item = Item.new
   end
-
+  
   def tag_addition # 管理者によるタグの新規登録処理
-    @item = Item.find(params[:id])
-    @item.tags.build(adopt_tag: tag_params[:adopt_tag], item_title: @item.title)
-    @item.save
-    redirect_to "/items/#{@item.id}/management"
+    @selected_item = Item.find(params[:id])
+    @selected_item.tags.build(adopt_tag: tag_params[:adopt_tag], item_title: @selected_item.title)
+    @selected_item.save
+    redirect_to "/items/#{@selected_item.id}/management"
   end
   
   def destroy # 管理者による素材削除処理
-    @item = Item.find(params[:id])
-    @item.destroy
+    @selected_item = Item.find(params[:id])
+    @selected_item.destroy
     redirect_to action: "data_list"
   end
   
@@ -62,21 +62,23 @@ class ItemsController < ApplicationController
     @selected_item = Item.find(params[:id])
     @item = Item.new
   end
-
+  
   def maketag # ユーザーによるタグ提案保存処理
-    @item = Item.find(params[:id])
-    @item.suggests.build(suggest_tag: maketag_params[:suggest_tag], item_title: @item.title)
-    if @item.save
-      InquiryMailer.maketag_email(@item).deliver
-      redirect_to "/items/#{@item.id}"
+    @selected_item = Item.find(params[:id])
+    @selected_item.suggests.build(suggest_tag: maketag_params[:suggest_tag], item_title: @selected_item.title)
+    if @selected_item.save
+      InquiryMailer.maketag_email(@selected_item).deliver
+      redirect_to "/items/#{@selected_item.id}"
     else
       flash.now[:alert] = "20文字以内のタグを入力して下さい！"
+      #form_forをビューで有効にするためには、newメソッドを呼び出しておく必要があるため、@selected_itemを定義
+      @selected_item = Item.find(params[:id])
       render :pre_show
     end
   end
 
   def show
-    # pre_showの変数を継承
+    # pre_showの変数@selected_itemを継承
     @selected_item = Item.find(params[:id])
   end
 
