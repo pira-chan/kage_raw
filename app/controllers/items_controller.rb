@@ -63,7 +63,7 @@ class ItemsController < ApplicationController
     @item = Item.new
   end
   
-  def maketag # ユーザーによるタグ提案保存処理
+  def maketag # ユーザーによるタグ提案保存処理(PATCH)
     @selected_item = Item.find(params[:id])
     @selected_item.suggests.build(suggest_tag: maketag_params[:suggest_tag], item_title: @selected_item.title)
     if @selected_item.save

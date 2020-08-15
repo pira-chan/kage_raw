@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get "items/search" => "items#search"
   get "items/:id/management" => "items#management"
   get "items/:id/pre_show" => "items#pre_show"
-  post "items/:id/maketag" => "items#maketag"   #ユーザーDL前タグ提案
+  patch "items/:id/maketag" => "items#maketag"   #ユーザーDL前タグ提案
   get "items/:id/download" => "items#download"
   get "items/not_found" => "items#not_found"
   get "items/terms_conditions" => "items#terms_conditions"

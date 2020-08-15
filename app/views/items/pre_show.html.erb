@@ -22,7 +22,7 @@
       <div class="down-arrow">
         <i class="fas fa-angle-double-down"></i>
       </div>
-      <%= form_for @item, url: "maketag" do |f| %> 
+      <%= form_for @selected_item, url: "maketag" do |f| %> 
         <div class="alert-message">
           <%= flash[:alert] %>
         </div>
@@ -34,7 +34,7 @@
     </div> 
     <div class="share">
       <h3>気に入ったシルエットは、ツイートして頂けると嬉しいです！</h3>
-      <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="カゲローラボで見つけた！【<%= @item.title %>】|" data-via="kage_raw_lab" data-hashtags="カゲローラボ" data-related="" data-lang="ja" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+      <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="カゲローラボで見つけた！【<%= @selected_item.title %>】|" data-via="kage_raw_lab" data-hashtags="カゲローラボ" data-related="" data-lang="ja" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
     </div>
     </div>
   </div>
