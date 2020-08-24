@@ -83,7 +83,7 @@ class ItemsController < ApplicationController
   end
 
   def download
-    @item = Item.find(params[:id])
+    @selected_item = Item.find(params[:id])
     # headerとfooterを非表示化
     render :download, layout: false
   end

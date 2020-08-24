@@ -11,7 +11,7 @@ Ruby on Railsの学習を主目的に作成した、シルエットイラスト�
 ※上記アカウントのログイン時、「パスワード情報が漏洩しました。」と表示される場合がありますが、問題はありません。  
 ※上記アカウントでは、リクエスト機能に付随するメール通知機能は利用できません。（架空のメールアドレスの為）
 
-# バージョン  
+# 使用言語とバージョン  
 Ruby 2.5.1  
 Rails 5.2.4.3  
 jQuery 1.12.4  
@@ -64,6 +64,7 @@ jQuery 1.12.4
     * aws-sdk
     * devise
     * rspec-rails
+    * factory_bot_rails
 
-# カゲローラボ制作者（作者）について
-* note:[TGIF Learning](https://note.com/tgif_learning)
+# カゲローラボ開発経緯について
+* note:[TGIF Learning](https://note.com/tgif_learning/n/n4bf5e6d56665)

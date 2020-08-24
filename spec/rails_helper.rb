@@ -5,6 +5,14 @@ require File.expand_path("../config/environment", __dir__)
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require "rspec/rails"
+RSpec.configure do |config|
+  #  Deviseのバージョンが4.1.2以上の時は以下のようにします。
+  config.include Devise::Test::ControllerHelpers, :type => :controller
+  # config.render_views
+  config.include FactoryBot::Syntax::Methods #ついでにFactoryBotもincludeしておきます
+  # Deviseのバージョンが4.1.1以下の時は上をコメントアウトして、以下の記述にします。
+  # config.include Devise::TestHelpers, :type => :controller
+end
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
